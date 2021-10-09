@@ -1,11 +1,16 @@
-void	ft_memset(char	*str, char	c, int	n)
+#include <stddef.h>
+
+void	*ft_memset(void	*str, int c, size_t len)
 {
-	int	i;
+	unsigned long	i;
+	char			*str_1;
 
 	i = 0;
-	while (str[i] != '\0' && i < n)
+	str_1 = (char *)str;
+	while (str_1[i] != '\0' && i < len)
 	{
-		str[i] = c;
+		str_1[i] = c;
 		++i;
 	}
+	return (0);
 }

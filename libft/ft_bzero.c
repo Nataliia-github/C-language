@@ -1,11 +1,15 @@
-void	ft_bzero(char	*s, int	n)
-{
-	int	i;
+#include <stddef.h>
 
+void	ft_bzero(void	*s, size_t n)
+{
+	unsigned long	i;
+	char			*s_1;
+
+	s_1 = (char *)s;
 	i = 0;
-	while (s[i] != '\0' && i < n)
+	while (s_1[i] != '\0' && i < n)
 	{
-		s[i] = 0;
+		s_1[i] = 0;
 		++i;
 	}
 }
