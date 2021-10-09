@@ -21,42 +21,11 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
 
 int	main(void)
 {
-	char	*s1;
-	char	*s2;
-	char	*s3;
-	char	*s4;
-	char	*s5;
-	char	*s6;
-	char	*s7;
-	char	*s8;
-	char	*s9;
-	char	*s10;
-	char	*s11;
-	char	*s12;
-	char	*s13;
-	char	*s14;
-	char	*s15;
-	char	*s16;
-	char	*s17;
-	char	*s18;
-	char	*s19;
-	char	*s20;
-	char	*s21;
-	int	a;
-	int	b;
-	char	*s22;
-	char	*s23;
-	char	*s24;
-	char	*s25;
-	int	c;
-	int	d;
-	char	*s26;
-	int		e;
-	char	*s27;
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("ISALPHA:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -70,6 +39,7 @@ int	main(void)
 	printf ("%d\n\n", ft_isalpha(64));
 	printf ("%d\n", isalpha(32));
 	printf ("%d\n", ft_isalpha(32));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("ISDIGIT:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -89,6 +59,7 @@ int	main(void)
 	printf ("%d\n\n", ft_isdigit(59));
 	printf ("%d\n", isdigit(113));
 	printf ("%d\n", ft_isdigit(113));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("ISALNUM:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -102,6 +73,7 @@ int	main(void)
 	printf ("%d\n\n", ft_isalnum(57));
 	printf ("%d\n", isalnum(112));
 	printf ("%d\n", ft_isalnum(112));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("ISASCII:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -111,6 +83,7 @@ int	main(void)
 	printf ("%d\n\n", ft_isascii(32));
 	printf ("%d\n", isascii(256));
 	printf ("%d\n", ft_isascii(256));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("ISPRINT:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -122,9 +95,13 @@ int	main(void)
 	printf ("%d\n\n", ft_isprint(127));
 	printf ("%d\n", isprint(245));
 	printf ("%d\n", ft_isprint(245));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRLEN:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s1;
+	char	*s2;
+	char	*s3;
 	char str1[] = "Hello, World!";
 	s1 = &str1[0];
 	printf ("Hello, world! = %lu\n", strlen(s1));
@@ -137,9 +114,14 @@ int	main(void)
 	s3 = &str3[0];
 	printf ("World! = %lu\n", strlen(s3));
 	printf ("World! = %lu\n", ft_strlen(s3));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("MEMSET:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s4;
+	char	*s5;
+	char	*s6;
+	char	*s7;
 	char str4[] = "Hello, World!";
 	s4 = &str4[0];
 	char str5[] = "Hello, World!";
@@ -156,9 +138,14 @@ int	main(void)
 	ft_memset(s7 + 4, '.', 10);
 	printf ("I like the lady horses best. = %s\n", s6);
 	printf ("I like the lady horses best. = %s\n", s7);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("BZERO:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s8;
+	char	*s9;
+	char	*s10;
+	char	*s11;
 	char str8[] = "how they make it all look easy";
 	s8 = &str8[0];
 	char str9[] = "how they make it all look easy";
@@ -175,9 +162,13 @@ int	main(void)
 	ft_bzero(s11 + 1, 7);
 	printf ("how they make it all look easy = %s\n", s10);
 	printf ("how they make it all look easy = %s\n", s11);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("MEMCPY:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s12;
+	char	*s13;
+	char	*s14;
 	char str12[] = "is as fun as taking a nap, or grass.";
 	s12 = &str12[0];
 	char str13[] = "I like";
@@ -188,9 +179,13 @@ int	main(void)
 	ft_memcpy(s14, s13, 3);
 	printf ("is as fun as taking a nap, or grass. = %s\n", s12);
 	printf ("is as fun as taking a nap, or grass. = %s\n", s14);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("MEMMOVE:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s15;
+	char	*s16;
+	char	*s17;
 	char str15[] = "after winning. Ears up, girls, ears up!";
 	s15 = &str15[0];
 	char str16[] = "BOOM";
@@ -201,9 +196,16 @@ int	main(void)
 	ft_memmove((s17 + 10), s16, 29);
 	printf ("after winning. Ears up, girls, ears up! = %s\n", s15);
 	printf ("after winning. Ears up, girls, ears up! = %s\n", s17);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRLCPY:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s18;
+	char	*s19;
+	char	*s20;
+	char	*s21;
+	int	a;
+	int	b;
 	char str18[] = "BOOM";
 	s18 = &str18[0];
 	char str19[] = "bada-boooooooooom";
@@ -220,9 +222,16 @@ int	main(void)
 	printf ("return value = %d (my function)\n", b);
 	printf("'%s' = %lu\n", str18, sizeof (str18));
 	printf("'%s' = %lu\n", str20, sizeof (str20));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRLCAT:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s22;
+	char	*s23;
+	char	*s24;
+	char	*s25;
+	int	c;
+	int	d;
 	char str22[] = "BOOM";
 	s22 = &str22[0];
 	char str23[] = "bada-boooooooooom";
@@ -239,6 +248,7 @@ int	main(void)
 	printf ("return value = %d (my function)\n", d);
 	printf("'%s' = %lu\n", str22, sizeof (str22));
 	printf("'%s' = %lu\n", str24, sizeof (str24));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("TOUPPER:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -250,6 +260,7 @@ int	main(void)
 	printf("90 = %d = %c\n", ft_toupper(90), (char)ft_toupper(90));
 	printf("122 = %d = %c\n", toupper(122), (char)toupper(122));
 	printf("122 = %d = %c\n", ft_toupper(122), (char)ft_toupper(122));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("TOLOWER:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -261,9 +272,12 @@ int	main(void)
 	printf("90 = %d = %c\n", ft_tolower(90), (char)ft_tolower(90));
 	printf("122 = %d = %c\n", tolower(122), (char)tolower(122));
 	printf("122 = %d = %c\n", ft_tolower(122), (char)ft_tolower(122));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRCHR:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s26;
+	int		e;
 	char	str26[] = "Hello!Hello!"; s26 = &str26[0];
 	e = 101;
 	printf("'Hello!Hello!' = '%s' <--- '%c' (%d)\n", strchr(s26, e), (char)e, e);
@@ -280,9 +294,11 @@ int	main(void)
 	e = 0;
 	printf("'Hello!Hello!' = '%s' <--- '%c' (%d)\n", strchr(s26, e), (char)e, e);
 	printf("'Hello!Hello!' = '%s' <--- '%c' (%d)\n", ft_strchr(s26, e), (char)e, e);
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRRCHR:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	char	*s27;
 	char	str27[] = "Hello!Hello!"; s27 = &str27[0];
 	e = 72;
 	printf("'Hello!Hello!' = '%s' <--- '%c' (%d)\n", strrchr(s27, e), (char)e, e);
@@ -296,7 +312,7 @@ int	main(void)
 	e = 100;
 	printf("'Hello!Hello!' = '%s' <--- '%c' (%d)\n", strrchr(s27, e), (char)e, e);
 	printf("'Hello!Hello!' = '%s' <--- '%c' (%d)\n", ft_strrchr(s27, e), (char)e, e);
-	
+//////////////////////////////////////////////////////////////////////////////////////////////////////	
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRNCMP:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -306,15 +322,15 @@ int	main(void)
 	char	str28[] = "Hello, World!"; s28 = &str28[0];
 	char	str29[] = "Hello, WORLD!"; s29 = &str29[0];
 	h = 10;
-	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %d symbols\n        %d\n\n", h, strncmp(s28, s29, h));
-	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %d symbols\n        %d\n\n", h, ft_strncmp(s28, s29, h));
-	h = 3;
+	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, strncmp(s28, s29, h));
+	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, ft_strncmp(s28, s29, h));
+	h = 0;
 	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %d symbols\n        %d\n\n", h, strncmp(s28, s29, h));
 	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %d symbols\n        %d\n\n", h, ft_strncmp(s28, s29, h));
 	h = 13;
 	printf ("  Hello, WORLD!\n- Hello, World!\n ----------------   <--- %d symbols\n        %d\n\n", h, strncmp(s29, s28, h));
 	printf ("  Hello, WORLD!\n- Hello, World!\n ----------------   <--- %d symbols\n        %d\n\n", h, ft_strncmp(s29, s28, h));
-	
+//////////////////////////////////////////////////////////////////////////////////////////////////////	
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("MEMCHR:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
@@ -331,6 +347,20 @@ int	main(void)
 	g = 0;
 	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", memchr(s30, f, g), (char)f, g);
 	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", ft_memchr(s31, f, g), (char)f, g);
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
+	printf ("MEMCMP:\n");
+	printf ("~~~~~~~~~~~~~~~~~~~~\n");
+	int	str32[] = {1, 2, 3, 4}; int	*s32 = &str32[0];
+	h = 10;
+	printf ("  1234\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, memcmp(s32, s29, h));
+	printf ("  1234\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, ft_memcmp(s32, s29, h));
+	h = 3;
+	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, memcmp(s28, s29, h));
+	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, ft_memcmp(s28, s29, h));
+	h = 13;
+	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, memcmp(s28, s29, h));
+	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, ft_memcmp(s28, s29, h));
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
 }
