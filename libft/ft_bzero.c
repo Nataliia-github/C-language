@@ -1,15 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_bzero.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/11/03 19:34:54 by nataliya      #+#    #+#                 */
+/*   Updated: 2021/11/03 19:43:39 by nataliya      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
 void	ft_bzero(void	*s, size_t n)
 {
-	unsigned long	i;
-	char			*s_1;
+	size_t	i;
 
-	s_1 = (char *)s;
 	i = 0;
-	while (s_1[i] != '\0' && i < n)
+	while (i < n)
 	{
-		s_1[i] = 0;
+		((char *)s)[i] = 0;
 		++i;
 	}
 }
