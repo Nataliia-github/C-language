@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -22,6 +23,8 @@ char	*ft_strrchr(const char *s, int c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
+char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
+int	ft_atoi(const char *str);
 
 int	main(void)
 {
@@ -339,14 +342,16 @@ int	main(void)
 	char	str30[] = "Hello!Hello!"; s30 = &str30[0];
 	char	str31[] = "Hello!Hello!"; s31 = &str31[0];
 	int f = 111; int g = 4;
-	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", memchr(s30, f, g), (char)f, g);
-	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", ft_memchr(s31, f, g), (char)f, g);	
+	char	*mem_st =  memchr(s30, f, g);
+	char	*mem_ft = ft_memchr(s31, f, g);
+	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", mem_st, (char)f, g);
+	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", mem_ft, (char)f, g);	
 	g = 6;
-	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", memchr(s30, f, g), (char)f, g);
-	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", ft_memchr(s31, f, g), (char)f, g);
+	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", mem_st, (char)f, g);
+	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", mem_ft, (char)f, g);
 	g = 0;
-	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", memchr(s30, f, g), (char)f, g);
-	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", ft_memchr(s31, f, g), (char)f, g);
+	printf("\n'Hello! Hello!' = '%s' <--- '%c' / %d\n", mem_st, (char)f, g);
+	printf("'Hello! Hello!' = '%s' <--- '%c' / %d\n\n", mem_ft, (char)f, g);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("MEMCMP:\n");
@@ -361,6 +366,36 @@ int	main(void)
 	h = 13;
 	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, memcmp(s28, s29, h));
 	printf ("  Hello, World!\n- Hello, WORLD!\n ----------------   <--- %i symbols\n        %d\n\n", h, ft_memcmp(s28, s29, h));
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
+	printf ("STRNSTR:\n");
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	char	str33[] = "One more story he said in a restaurant in Amsterdam";
+	char	str33_n[] = "said";
+	char	*s33 = &str33[0];
+	char	*s33_n = &str33_n[0];
+	printf("%s <---22--- %s  ==  %s\n", s33, s33_n, strnstr(s33, s33_n, 22));
+	printf("%s <---22--- %s  ==  %s\n\n", s33, s33_n, ft_strnstr(s33, s33_n, 22));
+	char	str33_n_1[] = "Amsterdam";
+	s33_n = &str33_n_1[0];
+	printf("%s <---22--- %s  ==  %s\n", s33, s33_n, strnstr(s33, s33_n, 22));
+	printf("%s <---22--- %s  ==  %s\n\n", s33, s33_n, ft_strnstr(s33, s33_n, 22));
+	printf("%s <---45--- %s  ==  %s\n", s33, s33_n, strnstr(s33, s33_n, 45));
+	printf("%s <---45--- %s  ==  %s\n\n", s33, s33_n, ft_strnstr(s33, s33_n, 45));
+	printf("%s <---60--- %s  ==  %s\n", s33, s33_n, strnstr(s33, s33_n, 60));
+	printf("%s <---60--- %s  ==  %s\n\n", s33, s33_n, ft_strnstr(s33, s33_n, 60));
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
+	printf ("ATOI:\n");
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	char	str34[] = "	++---++45435.2343asdasda";
+	char	*s34 = &str34[0];
+	printf("%s -----> %d \n", s34, atoi(s34));
+	printf("%s -----> %d \n\n", s34, ft_atoi(s34));
+	char	str35[] = "  ++---++asdasda";
+	char	*s35 = &str35[0];
+	printf("%s -----> %d \n", s35, atoi(s35));
+	printf("%s -----> %d \n\n", s35, ft_atoi(s35));
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
 }
