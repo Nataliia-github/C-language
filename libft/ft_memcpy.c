@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_memcpy.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/11/02 15:39:35 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/11/02 15:39:37 by ncheban       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
 void	*ft_memcpy(void	*restrict	dst, const void	*restrict src, size_t n)

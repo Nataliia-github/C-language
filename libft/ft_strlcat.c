@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strlcat.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/11/02 15:43:30 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/11/02 15:43:32 by ncheban       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 void	ft_concat(char *dst, const char *src, size_t temp_size)
 {

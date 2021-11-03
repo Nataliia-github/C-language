@@ -3,28 +3,31 @@
 #include <string.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include "libft.h"
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void	*str, int c, size_t len);
-void	ft_bzero(void	*s, size_t n);
-void	*ft_memcpy(void	*restrict	dst, const void	*restrict src, size_t n);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-size_t ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
-size_t ft_strlcat(char  * restrict dst, const char  * restrict src, size_t  dstsize);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-int	ft_memcmp(const void *s1, const void *s2, size_t n);
-char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
-int	ft_atoi(const char *str);
+//int		ft_isalpha(int c);
+//int		ft_isdigit(int c);
+//int		ft_isalnum(int c);
+//int		ft_isascii(int c);
+//int		ft_isprint(int c);
+//size_t	ft_strlen(const char *s);
+//void	*ft_memset(void	*str, int c, size_t len);
+//void	ft_bzero(void	*s, size_t n);
+//void	*ft_memcpy(void	*restrict	dst, const void	*restrict src, size_t n);
+//void	*ft_memmove(void *dst, const void *src, size_t len);
+//size_t ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
+//size_t ft_strlcat(char  * restrict dst, const char  * restrict src, size_t  dstsize);
+//int		ft_toupper(int c);
+//int		ft_tolower(int c);
+//char	*ft_strchr(const char *s, int c);
+//char	*ft_strrchr(const char *s, int c);
+//int		ft_strncmp(const char *s1, const char *s2, size_t n);
+//void	*ft_memchr(const void *s, int c, size_t n);
+//int		ft_memcmp(const void *s1, const void *s2, size_t n);
+//char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
+//int		ft_atoi(const char *str);
+//void	*ft_calloc(size_t count, size_t size);
+//char	*ft_strdup(const char *s1);
 
 int	main(void)
 {
@@ -386,16 +389,51 @@ int	main(void)
 	printf("%s <---60--- %s  ==  %s\n\n", s33, s33_n, ft_strnstr(s33, s33_n, 60));
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
-	printf ("ATOI:\n");
+	printf ("CALLOC:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
-	char	str34[] = "	++---++45435.2343asdasda";
-	char	*s34 = &str34[0];
-	printf("%s -----> %d \n", s34, atoi(s34));
-	printf("%s -----> %d \n\n", s34, ft_atoi(s34));
-	char	str35[] = "  ++---++asdasda";
-	char	*s35 = &str35[0];
-	printf("%s -----> %d \n", s35, atoi(s35));
-	printf("%s -----> %d \n\n", s35, ft_atoi(s35));
+	int	count;
+	int	*arr_1;
+	int	*arr_2;
+	int i;
+	count = 5;
+	arr_1 = (int *)calloc(count, sizeof(int));
+	arr_2 = (int *)ft_calloc(count, sizeof(int));
+	i = 0;
+	if (arr_1 == NULL)
+		printf("No memory to allocate standart.\n");
+	else
+	{
+		printf("Print elements standart:\n");
+		for (i = 0; i < count; ++i)
+			printf("%d\n", *(arr_1 + i));
+	}
+	i = 0;
+	if (arr_2 == NULL)
+		printf("No memory to allocate my func.\n");
+	else
+	{
+		printf("Print elements my func:\n");
+		for (i = 0; i < count; ++i)
+			printf("%d\n", *(arr_2 + i));
+	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
+	printf ("STRDUP:\n");
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	const char	*s34_1;
+	const char	*s34_2;
+	const char	s34[] = "Hello, World!";
+	s34_1 = &s34[0];
+	s34_2 = &s34[0];
+	printf("Standart: %s\n", strdup(s34_1));
+	printf("My  Func: %s\n\n", ft_strdup(s34_2));
+	const char	*s35_1;
+	const char	*s35_2;
+	const char	s35[0];
+	s35_1 = &s35[0];
+	s35_2 = &s35[0];
+	printf("Standart: %s\n", strdup(s35_1));
+	printf("My  Func: %s\n", ft_strdup(s35_2));
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
 }
