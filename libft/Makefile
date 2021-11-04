@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/04 16:37:22 by ncheban       ########   odam.nl          #
+#    Updated: 2021/11/04 19:42:08 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,10 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_strnstr.o \
 			obj/ft_strrchr.o \
 			obj/ft_tolower.o \
-			obj/ft_toupper.o 
+			obj/ft_toupper.o \
+			obj/main.o
 LDFLAGS?=
-GFLAGS?= -Wall -Wextra -Werror
+CFLAGS?= -Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -52,6 +53,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: clean
+.PHONY: all clean fclean re test
