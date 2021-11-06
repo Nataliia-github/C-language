@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 16:06:31 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 16:06:34 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/06 18:06:27 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (needle == NULL)
+	if (*needle == 0)
 		return ((char *)haystack);
 	while (haystack[i] != '\0' && i < len)
 	{
