@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:38:45 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 15:38:47 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/06 12:00:11 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	c_1 = (char)c;
 	s_1 = (char *)s;
 	i = 0;
-	while (s_1[i] != '\0' && i < n)
+	while (i < n)
 	{
 		if (s_1[i] == c_1)
 			return (&s_1[i]);
