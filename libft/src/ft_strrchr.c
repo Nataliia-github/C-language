@@ -6,30 +6,23 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 16:06:41 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 16:06:43 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/06 14:47:15 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-	char	a;
 	char	*ptr;
-	int		count;
 
-	a = (char)c;
-	ptr = (char *)s;
-	if (a == 0)
+	ptr = (char *)s + ft_strlen(s);
+	while (*ptr != c)
 	{
-		*ptr = '\0';
-		return (ptr);
+		if (ptr == (char *)s)
+			return (NULL);
+		ptr--;
 	}
-	count = 0;
-	while (*s++ != '\0')
-		++count;
-	while (--count > 0)
-	{
-		if (ptr[count] == a)
-			return (&ptr[count]);
-	}
-	return (0);
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/04 19:46:54 by ncheban       ########   odam.nl          #
+#    Updated: 2021/11/06 13:28:31 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_bzero.o \
 			obj/ft_calloc.o \
 			obj/ft_isalpha.o \
+			obj/ft_isalnum.o \
 			obj/ft_isascii.o \
 			obj/ft_isdigit.o \
 			obj/ft_isprint.o \
@@ -28,6 +29,7 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_strchr.o \
 			obj/ft_strdup.o \
 			obj/ft_strlcat.o \
+			obj/ft_strlcpy.o \
 			obj/ft_strlen.o \
 			obj/ft_strncmp.o \
 			obj/ft_strnstr.o \
