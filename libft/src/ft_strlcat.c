@@ -6,46 +6,31 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:43:30 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 15:43:32 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/06 17:38:24 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-void	ft_concat(char *dst, const char *src, size_t temp_size)
-{
-	while (*src != '\0')
-	{
-		if (temp_size != 0)
-		{
-			*dst++ = *src;
-			--temp_size;
-		}
-		++src;
-	}
-	*dst = '\0';
-}
+#include "libft.h"
 
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	size_t		dst_len;
-	size_t		src_len;
-	size_t		temp_size;
-	char		*temp_dst;
-	const char	*temp_src = src;
+	size_t	d_len;
+	size_t	s_len;
+	size_t	i;
 
-	temp_size = dstsize;
-	temp_dst = dst;
-	while (--temp_size != 0 && *dst != '\0')
-		++dst;
-	dst_len = dst - temp_dst;
-	temp_size = dstsize - dst_len;
-	if ((temp_size - 1) == 0)
+	d_len = ft_strlen(dst);
+	s_len = ft_strlen(src);
+	i = 0;
+	if (d_len > dstsize)
+		return (dstsize + s_len);
+	if (dstsize == 0)
+		return (s_len);
+	while (src[i] != '\0' || i < s_len)
 	{
-		src_len = 0;
-		while (*src++)
-			++src_len;
-		return (dst_len + src_len);
+		dst[d_len + i] = src[i];
+		++i;
 	}
-	ft_concat(dst, src, temp_size);
-	return (dst_len - (src - temp_src));
+	dst[d_len + i] = '\0';
+	return (d_len + i);
 }
