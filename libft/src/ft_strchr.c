@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:41:16 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/06 13:23:58 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/07 14:32:31 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	{
 		if (*ptr == '\0')
 			return (NULL);
-		ptr++;
+		++ptr;
 	}
 	return (ptr);
 }
