@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include "./src/libft.h"
+#include "src/libft.h"
 
 //int		ft_isalpha(int c);
 //int		ft_isdigit(int c);

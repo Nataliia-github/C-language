@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 12:28:13 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/07 14:59:21 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/08 09:32:48 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*ft_strtrim(char const *s1, char const *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-
 	pref = 0;
 	while (s1[pref] != '\0' && ft_strchr(s2, s1[pref]) != 0)
 		++pref;
