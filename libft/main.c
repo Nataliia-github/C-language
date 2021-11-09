@@ -456,7 +456,7 @@ int	main(void)
 	char str40[] = "/////000 Hello////World 000///";
 	char **s41;
 	
-	c = '/';
+	c_split = '/';
 	s41 = ft_split(s40, c_split);
 	i = 0;
 	while (i < strlen(*s41))
@@ -464,6 +464,20 @@ int	main(void)
 		printf("%s\n", s41[i]);
 		++i;
 	}
+	// printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+
+	// char const *s42; 
+	// char str42[] = "      split       this for   me  !       ";
+	// char **s43;
+	
+	// c_split = ' ';
+	// s43 = ft_split(s42, c_split);
+	// i = 0;
+	// while (i < strlen(*s43))
+	// {
+	// 	printf("%s\n", s43[i]);
+	// 	++i;
+	// }
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
 }
