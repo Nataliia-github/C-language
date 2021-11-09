@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 10:43:05 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/07 11:29:42 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/09 12:21:39 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
+	char			*substr;
 	unsigned int	s_len;
 	unsigned int	i;
 

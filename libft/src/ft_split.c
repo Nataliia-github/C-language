@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/08 17:47:27 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/09 11:57:35 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/09 13:14:08 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_count_words(char const *s, char c)
 	int	i;
 
 	words = 0;
+	i = 0;
 	while (s[i] != '\0')
 	{
 		if ((s[i + 1] == c || s[i + 1] == '\0') && (s[i] != c || s[i] != '\0'))
@@ -27,36 +28,50 @@ int	ft_count_words(char const *s, char c)
 	return (words);
 }
 
- void	ft_in_split(char **res, char const *s, int c, int words)
+void	ft_write_word(char	*dst, const char *src, char c)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != c || src[i] != '\0')
+	{
+		dst[i] = src[i];
+		++i;
+	}
+	dst[i] = '\0';
+}
+
+int	ft_freemem(char **res, int res_len)
+{
+	while (res_len > 0)
+		free(res[res_len]);
+	return (-1);
+}
+
+ int	ft_in_split(char **res, char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		s_len;
-	char	*str;
+	int		word;
 
 	i = 0;
-	s_len = ft_strlen(s);
-	while (s_len > 0)
+	word = 0;
+	while (s[i] != '\0')
 	{
-		while (s[s_len] == c)
-			--s_len;
-		while (s[s_len] != c)
+		if (s[i] == c)
+			++i;
+		else
 		{
-			str[i] == s[s_len];
-			++i;
-			--s_len;
-		}
-		j = 0;
-		res[words] = malloc((i + 1) * sizeof(char));
-		while (i > 0)
-		{	
-			res[words][j] = str[i];
-			++i;
-			++j;
-		}
-		res[words][j] = '\0';
-		--words;
-		--s_len;
+			j = 0;
+			while (s[i + j] != c || s[i + j] != '\0')
+				++j;
+			res[word] = (char *)malloc((j + 1) * sizeof(char));
+			if (res[word] != 0)
+				return (ft_freemem(res, word - 1));
+			ft_write_word(res[word], s + i, c);
+			i = j + i;
+			++word;
+		}		
 	}
 	return (0);
 }
@@ -69,10 +84,10 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL || c == '\0' || c == 0)
 		return (NULL);
 	words = ft_count_words (s, c);
-	res = (char	**)malloc((words + 1) * sizeof(char *));
+	res = (char **)malloc((words + 1) * sizeof(char *));
 	if (res == NULL)
 		return (NULL);
 	res[words] = 0;
-	ft_in_split(res, s, c, words);
+	ft_in_split(res, s, c);
 	return(res);
 }

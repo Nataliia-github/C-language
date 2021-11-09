@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/07 14:30:06 by nataliya      ########   odam.nl          #
+#    Updated: 2021/11/09 12:05:36 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_toupper.o \
 			obj/ft_substr.o \
 			obj/ft_strjoin.o \
-			obj/ft_strtrim.o
-LDFLAGS?=
+			obj/ft_strtrim.o \
+			obj/ft_split.o
 CFLAGS?= -Wall -Wextra -Werror
 
 all: $(NAME)
