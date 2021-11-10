@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:39:35 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/10 18:52:38 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/10 19:40:50 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void	*restrict	dst, const void	*restrict src, size_t n)
 	unsigned char	*temp_dst;
 	unsigned char	*temp_src;
 
-	if (dst == NULL || src == NULL)
+	if (dst == NULL && src == NULL)
 		return (NULL);
 	i = 0;
 	temp_dst = (unsigned char *)dst;
