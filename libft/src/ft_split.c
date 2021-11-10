@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/08 17:47:27 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/09 20:03:05 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/10 19:26:21 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ int	ft_count_words(char const *s, char c)
 		if (res[words] == NULL)
 			return (0);
 		res[words] = ft_substr(s, i, letters);
+		
 		// if (res[words] == NULL)
 		// 	return (ft_free_mem(res, words));
-//		free(res[words]);
+	//	free(res[words]);
 		i = i + letters;
 		++words;
 	}
@@ -83,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	res[words] = 0;
 	ft_split_it(res, s, c);
 //	printf("Word1 = '%s', word2 = '%s', word3 = '%s', word4 = '%s', word5 = '%s'\n", res[0], res[1], res[2], res[3], res[4]);
-	free(res);
+//	free(res);
 	return (res);
 }
 
