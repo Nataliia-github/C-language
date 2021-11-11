@@ -451,10 +451,10 @@ int	main(void)
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("SPLIT:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
-	char const *s40; 
-	char c_split;
-	char str40[] = "      split       this for   me  !       ";
-	char **s41 = ft_split(s40, ' ');
+	// char const *s40; 
+	// char c_split;
+	// char str40[] = "      split       this for   me  !       ";
+	// char **s41 = ft_split(s40, ' ');
 
 
 	// printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
@@ -466,13 +466,29 @@ int	main(void)
 	
 	// c_split = ' ';
 	// s43 = ft_split(s42, c_split);
-	// i = 0;
-	// while (i < strlen(*s43))
-	// {
-	// 	printf("%s\n", s43[i]);
-	// 	++i;
-	// }
 	// printf("Word1 = %s, word2 = %s\n", s43[0], s43[1]);
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
+	printf ("ITOA:\n");
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	int	input;
+
+	input = 0;
+	printf("~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	input = -0;
+	printf("~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	input = -11;
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	input = 16;
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	input = 163;
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	input = -163;
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	input = -2147483648;
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
 }
