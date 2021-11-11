@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:43:30 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/06 17:38:24 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/10 23:17:50 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 		return (dstsize + s_len);
 	if (dstsize == 0)
 		return (s_len);
-	while (src[i] != '\0' || i < s_len)
+	while (src[i] != '\0' && i < s_len)
 	{
 		dst[d_len + i] = src[i];
 		++i;
