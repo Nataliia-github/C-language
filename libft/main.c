@@ -494,6 +494,9 @@ int	main(void)
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRMAPI:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	char *s45;
+	char str45[] = "123";
+
 	
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
