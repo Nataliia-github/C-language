@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 10:39:42 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/11 16:46:14 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/12 16:57:03 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,11 @@ int	ft_count_len(int n)
 	int	i;
 
 	i = 0;
-	if (n == -2147483648)
-	{
-		n = n / 10;
-		++i;
-	}
 	if (n < 0)
 	{
 		n = n * (-1);
 		++i;
 	}
-	if (n == 0)
-		return (1);
 	while (n != 0)
 	{
 		n /= 10;
@@ -82,14 +75,14 @@ char	*ft_itoa(int n)
 	int		n_len;
 	char	neg;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
 	n_len = ft_count_len(n);
 	res = malloc ((n_len + 1) * sizeof(char));
 	if (res == NULL)
 		return (NULL);
-	if (n == -2147483648)
-		return (res = "-2147483648");
-	if (n == 0)
-		return ("0");
 	neg = 1;
 	if (n < 0)
 	{
