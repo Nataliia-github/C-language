@@ -39,9 +39,9 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
-		if (num * neg > 2147483647 || (j > 10 && neg == 1))
+		if (j > 10 && neg == 1)
 			return (-1);
-		else if (num * neg < -2147483648 || (j > 11 && neg == -1))
+		else if (j > 11 && neg == -1)
 			return (0);
 		++i;
 		++j;

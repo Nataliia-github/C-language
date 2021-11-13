@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:36:29 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 15:36:33 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/13 17:58:39 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	ft_bzero(void	*s, size_t n);
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*arr;
+	void	*str;
 
-	arr = malloc(count * size);
-	if (arr == NULL)
+	str = malloc(count * size);
+	if (str == NULL)
 		return (NULL);
-	ft_bzero (arr, count * size);
-	return (arr);
+	ft_bzero (str, count * size);
+	return (str);
 }
