@@ -6,15 +6,13 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/12 08:45:31 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/12 10:04:41 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:16:23 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the integer ’n’ to the given file */
-/* descriptor. */
+/* output a number to a file descriptor. */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_count_len_zero(int n)
 {
@@ -31,7 +29,7 @@ int	ft_count_len_zero(int n)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int n_len_zero;
+	int	n_len_zero;
 
 	if (n == -2147483648)
 	{
@@ -50,7 +48,7 @@ void	ft_putnbr_fd(int n, int fd)
 	while (n_len_zero > 0)
 	{
 		ft_putchar_fd((n / (n_len_zero / 10)), fd);
-		n = n % (n_len_zero / 10); 
+		n = n % (n_len_zero / 10);
 		n_len_zero /= 10;
 	}	
 }

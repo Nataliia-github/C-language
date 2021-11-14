@@ -6,15 +6,13 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/12 08:32:18 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/12 08:41:30 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:15:30 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the string ’s’ to the given file */
-/* descriptor, followed by a newline. */
+/* output a string to a file descriptor, followed by a new line. */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {

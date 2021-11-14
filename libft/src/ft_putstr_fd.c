@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 20:10:16 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/11 20:14:57 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 13:17:01 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* output a string to a file descriptor. */
 
 #include "libft.h"
 
