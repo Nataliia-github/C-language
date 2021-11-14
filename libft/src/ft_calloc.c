@@ -6,15 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:36:29 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/13 17:58:39 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 12:46:47 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
+/* allocates memory and sets its bytes' values to 0. */
 
-void	ft_bzero(void	*s, size_t n);
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
