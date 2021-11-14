@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:36:57 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/06 12:34:53 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 12:48:39 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* checks for an alphanumeric character. */
 
 int	ft_isalnum(int c)
 {

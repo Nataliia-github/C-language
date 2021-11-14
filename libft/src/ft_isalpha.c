@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:37:29 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 15:37:32 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 12:49:23 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* checks for an alphabetic character. */
 
 int	ft_isalpha(int c)
 {
