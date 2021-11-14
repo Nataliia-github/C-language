@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:38:45 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/13 18:20:35 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 12:53:59 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* scan memory for a character. */
 
 #include <stddef.h>
 

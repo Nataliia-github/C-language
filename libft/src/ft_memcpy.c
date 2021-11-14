@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:39:35 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/10 19:40:50 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 12:55:08 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* copy memory area. */
 
 #include <stddef.h>
 

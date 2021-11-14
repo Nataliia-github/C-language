@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:39:23 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/13 18:27:11 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 12:54:27 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* compare memory areas. */
 
 #include <stddef.h>
 

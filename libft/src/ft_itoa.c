@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 10:39:42 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/12 16:57:03 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 12:53:14 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* converts a number into a string. */
 
 #include "libft.h"
 #include <stdio.h>

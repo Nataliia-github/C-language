@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:40:15 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/04 15:40:00 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 12:57:33 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* fill memory with a constant byte. */
 
 #include <stddef.h>
 
