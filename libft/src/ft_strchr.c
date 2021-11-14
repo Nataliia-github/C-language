@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:41:16 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/07 14:32:31 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:25:21 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* locate character in a string. */
 
 #include <string.h>
 

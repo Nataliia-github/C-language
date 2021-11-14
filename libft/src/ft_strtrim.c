@@ -6,13 +6,11 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 12:28:13 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/13 15:35:04 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:37:18 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Allocates (with malloc(3)) and returns a copy of */
-/* ’s1’ with the characters specified in ’set’ removed */
-/* from the beginning and the end of the string. */
+/* trims the beginning and end of a string with a specific set of chars. */
 
 #include <string.h>
 #include "libft.h"
@@ -32,7 +30,8 @@ char	*ft_strtrim(char const *s1, char const *s2)
 	while (s1[pref] != '\0' && ft_strchr(s2, s1[pref]) != 0)
 		++pref;
 	suf = 0;
-	while ((ft_strlen(s1) - suf) > 0 && ft_strrchr(s2, s1[(ft_strlen(s1) - suf)]) != 0)
+	while ((ft_strlen(s1) - suf) > 0
+		&& ft_strrchr(s2, s1[(ft_strlen(s1) - suf)]) != 0)
 		++suf;
 	if ((pref + suf) > (int)ft_strlen(s1))
 		return ((char *)ft_calloc(sizeof(char), 1));

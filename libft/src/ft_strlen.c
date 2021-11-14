@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 16:06:14 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/02 16:06:15 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 13:32:48 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* calculate the length of a string. */
 
 #include <stddef.h>
 

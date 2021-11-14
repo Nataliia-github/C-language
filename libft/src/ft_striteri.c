@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 19:34:56 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/11 19:47:33 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 13:27:58 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* applies a function to each character of a string. */
 
 #include "libft.h"
 #include <stdio.h>

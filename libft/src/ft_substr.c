@@ -6,9 +6,11 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 10:43:05 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/10 19:29:16 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:39:06 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* returns a substring from a string. */
 
 #include <stddef.h>
 #include <string.h>
@@ -26,13 +28,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr = malloc((len + 1) * sizeof(char));
 	if (substr == NULL)
 		return (NULL);
-	if 	(ft_strlen(s) > start)
+	if (ft_strlen(s) > start)
 	{	
 		while (i < len)
-			{
-				substr[i] = s[start + i];
-				++i; 
-			}
+		{
+			substr[i] = s[start + i];
+			++i;
+		}
 	}
 	substr[i] = '\0';
 	return (substr);

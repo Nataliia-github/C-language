@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 16:06:23 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/06 15:12:54 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 13:34:17 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* compare two strings. */
 
 #include <stddef.h>
 #include <string.h>

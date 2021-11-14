@@ -6,11 +6,10 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:41:39 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/12 16:59:15 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:26:28 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)

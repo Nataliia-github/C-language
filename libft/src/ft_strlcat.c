@@ -6,15 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:43:30 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/13 16:58:19 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/14 13:31:33 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* take the full size								*/
-/*    of the destination buffer and guarantee NUL-	*/
-/*     termination if there is room.  Note that		*/
-/*    room for the NUL should be included in		*/
-/*     dstsize. 									*/
+/* concatenate a string to a specific size.		*/
 
 #include <stddef.h>
 #include <stdio.h>
