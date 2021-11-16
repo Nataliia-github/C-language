@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/12 08:45:31 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/14 13:16:23 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/16 15:37:53 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,27 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	int	n_len_zero;
 
-	if (n == -2147483648)
+	if (n <= 0)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		n = 147483648;
+		if (n == -2147483648)
+			ft_putstr_fd("-2147483648", fd);
+		else if (n < 0 && n > -2147483648)
+		{
+			ft_putchar_fd('-', fd);
+			n = n * (-1);
+			// printf("n after n* (-1) = %d\n", n);
+		}
+		else if (n == 0)
+			ft_putchar_fd('0', fd);
 	}
-	if (n < 0 && n != -2147483648)
+	if (n > 0)
 	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
+		n_len_zero = ft_count_len_zero(n);
+		while (n_len_zero > 0)
+		{
+			ft_putchar_fd((n /n_len_zero + '0'), fd);
+			n = n % n_len_zero;
+			n_len_zero = n_len_zero / 10;
+		}
 	}
-	if (n == 0)
-		ft_putchar_fd('0', fd);
-	n_len_zero = ft_count_len_zero(n);
-	while (n_len_zero > 0)
-	{
-		ft_putchar_fd((n / (n_len_zero / 10)), fd);
-		n = n % (n_len_zero / 10);
-		n_len_zero /= 10;
-	}	
 }

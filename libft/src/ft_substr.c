@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 10:43:05 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/14 13:39:06 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/14 18:03:38 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 
 	i = 0;
-	if (s == NULL || len == 0)
+	if (s == NULL)
 		return (NULL);
+	if (start < 0 || len <= 0)
+		return (0);
 	substr = malloc((len + 1) * sizeof(char));
 	if (substr == NULL)
 		return (NULL);
-	if (ft_strlen(s) > start)
+	if (ft_strlen(s) >= start)
 	{	
-		while (i < len)
+		while (i < len && s[start + i] != '\0')
 		{
 			substr[i] = s[start + i];
 			++i;
