@@ -275,22 +275,23 @@ int	main(void)
 	char	*s25;
 	int	c;
 	int	d;
-	char str22[] = "BOOM";
+	char str22[] = "a";
 	s22 = &str22[0];
 	char str23[] = "bada-boooooooooom";
 	s23 = &str23[0];
-	char str24[] = "BOOM";
+	char str24[] = "a";
 	s24 = &str24[0];
 	char str25[] = "bada-boooooooooom";
 	s25 = &str25[0];
-	printf("'%s' = %lu <--- '%s' = %lu\n", str18, sizeof (str18), str19, sizeof (str19));
-	printf("'%s' = %lu <--- '%s' = %lu\n", str20, sizeof (str20), str21, sizeof (str21));
-	c = strlcat(s22, s23, sizeof (str18));
-	d = ft_strlcat(s24, s25, sizeof (str20));
+	printf("'%s' = %lu <--- '%s' = %lu\n", str22, sizeof (str22), str23, sizeof (str23));
+	printf("'%s' = %lu <--- '%s' = %lu\n", str24, sizeof (str24), str25, sizeof (str25));
+	c = strlcat(s22, s23, 10);
+	d = ft_strlcat(s24, s25, 10);
 	printf ("return value = %d (library)\n", c);
 	printf ("return value = %d (my function)\n", d);
-	printf("'%s' = %lu\n", str22, sizeof (str22));
-	printf("'%s' = %lu\n", str24, sizeof (str24));
+	printf("dst '%s' = %lu (library)\n", str22, sizeof (str22));   
+	printf("dst '%s' = %lu (my function)\n", str24, sizeof (str24));
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("TOUPPER:\n");
@@ -588,6 +589,6 @@ int	main(void)
 	printf ("n = %d\n", n_putnbr);
 	ft_putnbr_fd(n_putnbr, 1);
 
-	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n\n");
 	return (0);
 }
