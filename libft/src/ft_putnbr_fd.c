@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/12 08:45:31 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/16 15:37:53 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/16 16:01:15 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_putnbr_fd(int n, int fd)
 		{
 			ft_putchar_fd('-', fd);
 			n = n * (-1);
-			// printf("n after n* (-1) = %d\n", n);
 		}
 		else if (n == 0)
 			ft_putchar_fd('0', fd);
