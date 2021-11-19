@@ -3,7 +3,7 @@
 //#include <string.h>
 //#include <stddef.h>
 //#include <stdlib.h>
-#include "./src/libft.h"
+#include "../libft/src/libft.h"
 
 //int		ft_isalpha(int c);
 //int		ft_isdigit(int c);
@@ -232,28 +232,24 @@ int	main(void)
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRLCAT:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n");
-	char	*s22;
-	char	*s23;
-	char	*s24;
-	char	*s25;
-	int	c;
-	int	d;
-	char str22[] = "BOOM";
-	s22 = &str22[0];
-	char str23[] = "bada-boooooooooom";
-	s23 = &str23[0];
-	char str24[] = "BOOM";
-	s24 = &str24[0];
-	char str25[] = "bada-boooooooooom";
-	s25 = &str25[0];
-	printf("'%s' = %lu <--- '%s' = %lu\n", str18, sizeof (str18), str19, sizeof (str19));
-	printf("'%s' = %lu <--- '%s' = %lu\n", str20, sizeof (str20), str21, sizeof (str21));
-	c = strlcat(s22, s23, sizeof (str18));
-	d = ft_strlcat(s24, s25, sizeof (str20));
-	printf ("return value = %d (library)\n", c);
-	printf ("return value = %d (my function)\n", d);
-	printf("'%s' = %lu\n", str22, sizeof (str22));
-	printf("'%s' = %lu\n", str24, sizeof (str24));
+
+	char first[] = "This is ";
+    char last[] = "a potentially long string";
+    int r;
+    int size = 8;
+    char buffer[size];
+
+    printf("%s (%lu)\n%s (%lu)\n", first, sizeof(first), last, sizeof(last));
+	strcpy(buffer,first);
+    r = ft_strlcat(buffer,last,size);
+
+    puts(buffer);
+    printf("Value returned: %d\n",r);
+    if( r > size )
+        puts("String truncated");
+    else
+        puts("String was fully copied");
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("TOUPPER:\n");
