@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/08 17:47:27 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/19 15:53:19 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/19 16:16:40 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "libft.h"
 
-int	ft_count_words(char const *s, char c)
+static	int	ft_count_words(char const *s, char c)
 {
 	int	words;
 	int	i;
@@ -30,7 +30,7 @@ int	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-int	ft_split_it(char **res, char const *s, char c)
+static	int	ft_split_it(char **res, char const *s, char c)
 {
 	int		i;
 	int		letters;

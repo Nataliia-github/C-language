@@ -14,7 +14,7 @@
 
 #include "libft.h"
 
-int	ft_skip_white(const char *str, int i)
+static	int	ft_skip_white(const char *str, int i)
 {
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r'
 		|| str[i] == '\n' || str[i] == '\f' || str[i] == '\v')
@@ -22,7 +22,7 @@ int	ft_skip_white(const char *str, int i)
 	return (i);
 }
 
-int	ft_is_neg(const char *str, int i)
+static	int	ft_is_neg(const char *str, int i)
 {
 	int	neg;
 
@@ -36,7 +36,7 @@ int	ft_is_neg(const char *str, int i)
 	return (neg);
 }
 
-int	ft_skip_pm(const char *str, int i)
+static	int	ft_skip_pm(const char *str, int i)
 {
 	int	j;
 

@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 10:39:42 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 12:53:14 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/19 16:15:07 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-int	ft_count_len(int n)
+static	int	ft_count_len(int n)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	ft_count_len(int n)
 	return (i);
 }
 
-void	ft_fill_reverse(char *res, int n, int neg)
+static	void	ft_fill_reverse(char *res, int n, int neg)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ void	ft_fill_reverse(char *res, int n, int neg)
 	res[i] = '\0';
 }
 
-char	*ft_strrev(char *res)
+static	char	*ft_strrev(char *res)
 {
 	int		i;
 	int		j;

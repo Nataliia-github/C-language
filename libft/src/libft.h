@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 16:56:34 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/12 08:47:52 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/19 16:19:24 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <ctype.h>
-# include <stdio.h>
 # include <string.h>
 # include <stddef.h>
 # include <stdlib.h>

@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/12 08:45:31 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/19 15:57:45 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/19 16:16:19 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "libft.h"
 
-int	ft_count_len_zero(int n)
+static	int	ft_count_len_zero(int n)
 {
 	int	i;
 
