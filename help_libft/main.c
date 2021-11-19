@@ -385,6 +385,35 @@ int	main(void)
 	printf("%s <---60--- %s  ==  %s\n\n", s33, s33_n, ft_strnstr(s33, s33_n, 60));
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
+	printf ("ATOI:\n");
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	printf ("Output myfun = %i\n", ft_atoi("----48"));
+	printf ("Output stand = %i\n\n", atoi("-----48"));
+	
+	printf ("Output myfun = %i\n", ft_atoi("+-54"));
+	printf ("Output stand = %i\n\n", atoi("+-54"));
+
+	printf ("Output myfun = %i\n", ft_atoi("+-54"));
+	printf ("Output stand = %i\n\n", atoi("+-54"));
+
+	printf ("Output myfun = %i\n", ft_atoi("--47"));
+	printf ("Output stand = %i\n\n", atoi("--47"));
+
+	printf ("Output myfun = %i\n", ft_atoi("++47"));
+	printf ("Output stand = %i\n\n", atoi("++47"));
+
+	printf ("Output myfun = %i\n", ft_atoi("\t\n\r\v\f  469 \n"));
+	printf ("Output stand = %i\n\n", atoi("\t\n\r\v\f  469 \n"));
+
+	printf ("Output myfun = %i\n", ft_atoi("\n\n\n  -46\b9 \n5d6"));
+	printf ("Output stand = %i\n\n", atoi("\n\n\n  -46\b9 \n5d6"));
+
+	printf ("Output myfun = %i\n", ft_atoi("\n\n\n-99\b9 \n5d6"));
+	printf ("Output stand = %i\n\n", atoi("\n\n\n-99\b9 \n5d6"));
+
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("CALLOC:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	int	count;
@@ -412,6 +441,7 @@ int	main(void)
 		for (i = 0; i < count; ++i)
 			printf("%d\n", *(arr_2 + i));
 	}
+	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("STRDUP:\n");
@@ -435,6 +465,13 @@ int	main(void)
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");
 	printf ("SUBSTR:\n");
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
+
+	char	str[] = "lorem ipsum dolor sit amet";
+	char	*strsub;
+
+	printf("%s\n", strsub = ft_substr(str, 0, 0));
+	printf("%s\n", strsub = ft_substr(str, 7, 0));
+	printf("%s\n", strsub = ft_substr(str, 0, 7));
 
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -471,20 +508,20 @@ int	main(void)
 	int	input;
 
 	input = 0;
-	printf("~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	input = -0;
-	printf("~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	input = -11;
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	input = 16;
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	input = 163;
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	input = -163;
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	input = -2147483648;
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Input = %d; output = '%s'\n", input, ft_itoa(input));
+	printf("Input = %d; \toutput = '%s'\n", input, ft_itoa(input));
 	printf ("~~~~~~~~~~~~~~~~~~~~\n\n");
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	printf ("\n~~~~~~~~~~~~~~~~~~~~\n");

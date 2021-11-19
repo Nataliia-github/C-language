@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/12 08:45:31 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/16 16:01:15 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/19 15:57:45 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_putnbr_fd(int n, int fd)
 		n_len_zero = ft_count_len_zero(n);
 		while (n_len_zero > 0)
 		{
-			ft_putchar_fd((n /n_len_zero + '0'), fd);
+			ft_putchar_fd((n / n_len_zero + '0'), fd);
 			n = n % n_len_zero;
 			n_len_zero = n_len_zero / 10;
 		}

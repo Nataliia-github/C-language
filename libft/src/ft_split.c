@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/08 17:47:27 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/14 13:23:21 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/19 15:53:19 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_split_it(char **res, char const *s, char c)
 		letters = 0;
 		while (s[i + letters] != c && s[i + letters] != '\0')
 			++letters;
+		if (letters == 0)
+			break ;
 		res[words] = (char *)malloc((letters + 1) * sizeof(char));
 		if (res[words] == NULL)
 			return (0);
