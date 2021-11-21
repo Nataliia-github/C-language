@@ -6,12 +6,12 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/12 08:48:48 by nataliya      ########   odam.nl          #
+#    Updated: 2021/11/21 21:19:47 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= libft.a
-HEADERFILES:= src/libft.h
+HEADERFILES:= libft.h
 CC ?= gcc
 OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_bzero.o \
@@ -46,7 +46,10 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_putchar_fd.o \
 			obj/ft_putstr_fd.o \
 			obj/ft_putendl_fd.o \
-			obj/ft_putnbr_fd.o
+			obj/ft_putnbr_fd.o \
+			obj/ft_lstnew.o \
+			obj/ft_lstadd_front.o \
+			obj/ft_lstsize.o
 			
 CFLAGS?= -Wall -Wextra -Werror
 
@@ -55,7 +58,7 @@ all: $(NAME)
 $(NAME): $(OBJFILES)
 	ar rcs $(NAME) $(OBJFILES)
 
-obj/%.o: src/%.c $(HEADERFILES)
+obj/%.o: %.c $(HEADERFILES)
 	@mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
