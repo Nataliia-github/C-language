@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 16:56:34 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/22 17:24:10 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/11/22 17:56:17 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
