@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/23 11:59:03 by ncheban       ########   odam.nl          #
+#    Updated: 2021/11/23 14:47:28 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_lstlast.o \
 			obj/ft_lstadd_back.o \
 			obj/ft_lstdelone.o \
-			obj/ft_lstclear.o
+			obj/ft_lstclear.o \
+			obj/ft_lstiter.o
 
 CFLAGS?= -Wall -Wextra -Werror
 
