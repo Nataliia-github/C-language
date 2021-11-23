@@ -6,13 +6,15 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 14:44:39 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/23 14:51:26 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/23 19:11:59 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*	 Applies the function ’f’ to the content of each element of 'lst'. 	*/
+
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void(*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst == NULL || f == NULL)
 		return ;

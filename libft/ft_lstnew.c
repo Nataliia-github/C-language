@@ -6,9 +6,12 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 14:35:35 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/21 19:24:30 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/23 19:04:28 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* 	Allocates (with malloc()) and returns	*/
+/*	a new element (filled with 'content'). 	*/
 
 #include "libft.h"
 

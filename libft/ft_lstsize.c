@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 21:15:58 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/23 16:24:18 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/23 19:05:16 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*	Counts the number of elements in a list. */
 
 #include "libft.h"
 

@@ -6,9 +6,12 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 11:57:17 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/23 16:11:19 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/23 19:10:52 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*	Deletes and frees the given element.  			*/
+/*	The pointer to the list must be set to NULL.	*/
 
 #include "libft.h"
 

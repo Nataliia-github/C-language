@@ -6,9 +6,11 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 19:28:39 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/21 21:13:08 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/23 19:04:53 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*	Adds the element ’new’ at the beginning of the list. */
 
 #include "libft.h"
 
