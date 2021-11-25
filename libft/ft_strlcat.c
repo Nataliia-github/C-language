@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:43:30 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/19 12:31:22 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/25 15:03:13 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	first_len;
 	size_t	last_len;

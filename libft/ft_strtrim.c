@@ -6,13 +6,12 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 12:28:13 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/14 13:37:18 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/25 20:10:02 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* trims the beginning and end of a string with a specific set of chars. */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *s2)
@@ -36,8 +35,6 @@ char	*ft_strtrim(char const *s1, char const *s2)
 	if ((pref + suf) > (int)ft_strlen(s1))
 		return ((char *)ft_calloc(sizeof(char), 1));
 	strt_len = (ft_strlen(s1) - pref - suf);
-	strt = malloc(strt_len * sizeof(char));
-	if (strt_len > 0)
-		strt = ft_substr(s1, pref, (strt_len + 1));
+	strt = ft_substr(s1, pref, (strt_len + 1));
 	return (strt);
 }
