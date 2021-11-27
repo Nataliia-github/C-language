@@ -6,14 +6,12 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:43:30 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/25 15:03:13 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:00:47 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* concatenate a string to a specific size.		*/
 
-#include <stddef.h>
-#include <stdio.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)

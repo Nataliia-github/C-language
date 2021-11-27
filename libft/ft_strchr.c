@@ -6,13 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:41:16 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/25 15:23:29 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:00:28 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* locate character in a string. */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

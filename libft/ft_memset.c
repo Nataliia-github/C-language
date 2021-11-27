@@ -6,13 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:40:15 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 12:57:33 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:00:05 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* fill memory with a constant byte. */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void	*str, int c, size_t len)
 {

@@ -6,13 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 16:06:14 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 13:32:48 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:01:00 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* calculate the length of a string. */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

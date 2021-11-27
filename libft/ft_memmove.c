@@ -6,14 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:39:45 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 12:56:53 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 16:59:50 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*  copy memory area without overlap. */
 
 #include "libft.h"
-#include <stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

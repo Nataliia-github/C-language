@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 16:56:34 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/25 15:04:23 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:01:47 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <string.h>
 # include <stddef.h>
 # include <stdlib.h>
-# include "libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFF_SIZE 5000

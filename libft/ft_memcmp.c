@@ -6,13 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:39:23 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 12:54:27 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 16:59:36 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* compare memory areas. */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

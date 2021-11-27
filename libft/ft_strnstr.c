@@ -6,13 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 16:06:31 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 13:35:06 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:01:30 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* locate a substring in a string. */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

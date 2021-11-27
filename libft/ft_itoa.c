@@ -6,14 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 10:39:42 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/19 16:15:07 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 16:58:59 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* converts a number into a string. */
 
 #include "libft.h"
-#include <stdio.h>
 
 static	int	ft_count_len(int n)
 {

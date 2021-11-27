@@ -6,13 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 15:39:35 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/25 15:03:00 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 16:59:45 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* copy memory area. */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memcpy(void	*dst, const void *src, size_t n)
 {

@@ -6,13 +6,12 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/11 18:24:46 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 13:33:32 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:01:07 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* applies a function to each character of a string. */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

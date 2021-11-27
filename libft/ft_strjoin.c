@@ -6,13 +6,12 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/07 11:38:01 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/14 13:29:34 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/27 17:00:41 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* concatenates two strings. */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
