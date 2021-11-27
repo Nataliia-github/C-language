@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrchr.c                                       :+:    :+:            */
+/*   ft_lstclear.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/02 16:06:41 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 13:35:36 by ncheban       ########   odam.nl         */
+/*   Created: 2021/11/23 11:57:17 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/11/23 19:10:52 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* locate character in a string. */
+/*	Deletes and frees the given element.  			*/
+/*	The pointer to the list must be set to NULL.	*/
 
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*ptr;
+	t_list	*temp_lst;
+	t_list	*temp_next;
 
-	ptr = (char *)s + ft_strlen(s);
-	while (*ptr != c)
+	if (del == NULL || *lst == NULL || lst == NULL)
+		return ;
+	temp_lst = *lst;
+	while (temp_lst != NULL)
 	{
-		if (ptr == (char *)s)
-			return (NULL);
-		ptr--;
+		temp_next = temp_lst->next;
+		ft_lstdelone(temp_lst, del);
+		temp_lst = temp_next;
 	}
-	return (ptr);
+	*lst = NULL;
 }

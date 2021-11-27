@@ -6,12 +6,12 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/12 08:48:48 by nataliya      ########   odam.nl          #
+#    Updated: 2021/11/23 20:03:55 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= libft.a
-HEADERFILES:= src/libft.h
+HEADERFILES:= libft.h
 CC ?= gcc
 OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_bzero.o \
@@ -48,6 +48,16 @@ OBJFILES:=	obj/ft_atoi.o \
 			obj/ft_putendl_fd.o \
 			obj/ft_putnbr_fd.o
 			
+BONUS_OBJFILES :=	obj/ft_lstnew.o \
+					obj/ft_lstadd_front.o \
+					obj/ft_lstsize.o \
+					obj/ft_lstlast.o \
+					obj/ft_lstadd_back.o \
+					obj/ft_lstdelone.o \
+					obj/ft_lstclear.o \
+					obj/ft_lstiter.o \
+					obj/ft_lstmap.o
+
 CFLAGS?= -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -55,15 +65,19 @@ all: $(NAME)
 $(NAME): $(OBJFILES)
 	ar rcs $(NAME) $(OBJFILES)
 
-obj/%.o: src/%.c $(HEADERFILES)
+obj/%.o: %.c $(HEADERFILES)
 	@mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	rm -rf $(OBJFILES) obj/
+	rm -rf $(OBJFILES) $(BONUS_OBJFILES) obj/
 
 fclean: clean
 	rm -rf $(NAME)
+
+.PHONY: bonus
+bonus: $(OBJFILES) $(BONUS_OBJFILES)
+	ar rcs $(NAME) $(OBJFILES) $(BONUS_OBJFILES)
 
 re: fclean all
 

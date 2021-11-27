@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/08 17:47:27 by nataliya      #+#    #+#                 */
-/*   Updated: 2021/11/19 16:16:40 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/25 20:14:27 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,20 @@ static	int	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-static	int	ft_split_it(char **res, char const *s, char c)
+static void	ft_free_mem(char **res, int words)
+{
+	int	i;
+
+	i = 0;
+	while (i < words)
+	{
+		free (res[i]);
+		++i;
+	}
+	free (res);
+}
+
+static	void	ft_split_it(char **res, char const *s, char c)
 {
 	int		i;
 	int		letters;
@@ -47,14 +60,12 @@ static	int	ft_split_it(char **res, char const *s, char c)
 			++letters;
 		if (letters == 0)
 			break ;
-		res[words] = (char *)malloc((letters + 1) * sizeof(char));
-		if (res[words] == NULL)
-			return (0);
 		res[words] = ft_substr(s, i, letters);
+		if (res[words] == NULL)
+			ft_free_mem(res, words);
 		i = i + letters;
 		++words;
 	}
-	return (0);
 }
 
 char	**ft_split(char const *s, char c)

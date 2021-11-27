@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memchr.c                                        :+:    :+:            */
+/*   ft_lstadd_front.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/02 15:38:45 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 12:53:59 by ncheban       ########   odam.nl         */
+/*   Created: 2021/11/21 19:28:39 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/11/23 19:04:53 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* scan memory for a character. */
+/*	Adds the element ’new’ at the beginning of the list. */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	char	*s_1;
-	size_t	i;
-
-	s_1 = (char *)s;
-	i = -1;
-	while (++i < n)
+	if (lst == NULL)
 	{
-		if (s_1[i] == c)
-			return (&s_1[i]);
+		*lst = new;
+		return ;
 	}
-	return (0);
+	new->next = *lst;
+	*lst = new;
 }

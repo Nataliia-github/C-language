@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strchr.c                                        :+:    :+:            */
+/*   ft_lstadd_back.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
+/*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/02 15:41:16 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/14 13:25:21 by ncheban       ########   odam.nl         */
+/*   Created: 2021/11/22 17:39:17 by nataliya      #+#    #+#                 */
+/*   Updated: 2021/11/23 19:05:47 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* locate character in a string. */
+/*	Adds the element ’new’ at the end of the list. */
 
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*ptr;
-
-	ptr = (char *)s;
-	while (*ptr != c)
-	{
-		if (*ptr == '\0')
-			return (NULL);
-		++ptr;
-	}
-	return (ptr);
+	if (*lst != NULL)
+		ft_lstlast(*lst)->next = new;
+	else
+		*lst = new;
 }
