@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/30 13:16:57 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/30 18:26:25 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 
 int	main(void)
 {
-	ft_printf("% Experiment %d, %c %%\n", "55", "56", "57");
-	// ft_printf("% Experiment %d, %c %%\n", 55, 56, 57);
+	char	*ptr;
+	char	c;
+	
+	ptr = &c;
+	ft_printf("  MyFunc Char: %c\n", '5');
+	printf("Standart Char: %c\n", '5');
+	ft_printf("  MyFunc %c,  %05d, %p\n", "55", "56", "57");
+	printf("Standart %c, %05d, %p\n", '5', 56, ptr);
+	// ft_printf("% Experiment %d, %c, %%, %p\n", 55, 56, 57);
 	return (0);
 }

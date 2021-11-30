@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/27 15:01:09 by ncheban       ########   odam.nl          #
+#    Updated: 2021/11/30 16:58:48 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ HEADERFILES:= 	ft_printf.h
 INCLIB_DIR := libft/
 INCLIB_NAME := libft.a
 CC := gcc
-OBJFILES:= obj/ft_printf.o
+OBJFILES:= 	obj/ft_printf.o \
+			obj/ft_putnbr_base.o
 
 TESTFILE:= test_ft_printf.c
 
