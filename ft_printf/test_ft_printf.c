@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/27 18:38:11 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/11/30 13:16:57 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	main(void)
 {
-	ft_printf("%i -> %i -> %i", 55, 56, 57);
+	ft_printf("% Experiment %d, %c %%\n", "55", "56", "57");
+	// ft_printf("% Experiment %d, %c %%\n", 55, 56, 57);
 	return (0);
 }
