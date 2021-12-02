@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/02 22:20:24 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/12/02 22:42:22 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,22 @@
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-// static int	ft_count_args(va_list arg_copy)
-// {
-// 	int		i;
-// 	char	*temp;
+static int	ft_count_args(va_list arg_copy)
+{
+	int		i;
+	char	*temp;
 
-	// i = 0;
-	// temp = va_arg(arg_copy, char *);
-	// // ft_memcpy(result[i].mod_arg, temp, sizeof(temp));
-	// while (temp != NULL)
-	// {
-	// 	++i;
-	// 	temp = va_arg(arg_copy, char *);
-	// 	// ft_memcpy(result[i].mod_arg, temp, sizeof(temp));
-	// }
-	// va_end(arg_copy);
-	// return (i);
-// }
+	i = 0;
+	temp = va_arg(arg_copy, char *);
+	// ft_memcpy(result[i].mod_arg, temp, sizeof(temp));
+	while (temp != NULL)
+	{
+		temp = va_arg(arg_copy, char *);
+		++i;
+		// ft_memcpy(result[i].mod_arg, temp, sizeof(temp));
+	}
+	return (i);
+}
 
 static int	ft_fill_result(const char *restrict format, t_print *result)
 {
@@ -153,9 +152,9 @@ int	ft_printf(const char *restrict format, ...)
 	t_print	*result;
 	int		i;
 	int		ord;
-	// int		args;
-	// va_list	arg_ptr;
-	// va_list	arg_copy;
+	int		args;
+	va_list	arg_ptr;
+	va_list	arg_copy;
 
 	result = (t_print *)malloc(sizeof(t_print));
 	if (result == NULL)
@@ -164,13 +163,14 @@ int	ft_printf(const char *restrict format, ...)
 	printf("\n'%s' - lenght = %zu\n", format, ft_strlen(format));
 	ord = ft_fill_result(format, result);
 	printf("ord = %d\n", ord);
-	// args = 0;
-	// va_start(arg_ptr, format);
-	// va_copy(arg_copy, arg_ptr);
-	// printf("args = %d\n", args);
-	// args = ft_count_args(arg_copy);
-	// va_end(arg_ptr);
-	// printf("args = %i\n", args);
+	args = 0;
+	va_start(arg_ptr, format);
+	va_copy(arg_copy, arg_ptr);
+	printf("args = %d\n", args);
+	args = ft_count_args(arg_copy);
+	va_end(arg_copy);
+	va_end(arg_ptr);
+	printf("args = %i\n", args);
 	// ft_print_kind_str(result, args, ord);
 	i = 0;
 	while (i < ord)
