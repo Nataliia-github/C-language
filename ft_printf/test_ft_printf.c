@@ -6,12 +6,13 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/30 18:26:25 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/01 23:39:11 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	main(void)
 {
@@ -19,10 +20,7 @@ int	main(void)
 	char	c;
 	
 	ptr = &c;
-	ft_printf("  MyFunc Char: %c\n", '5');
-	printf("Standart Char: %c\n", '5');
-	ft_printf("  MyFunc %c,  %05d, %p\n", "55", "56", "57");
-	printf("Standart %c, %05d, %p\n", '5', 56, ptr);
-	// ft_printf("% Experiment %d, %c, %%, %p\n", 55, 56, 57);
+	ft_printf("First element %c, second element %Xd, third element %i", 'a', 2, 3);
+	// printf("First element %c,second element %d, third element %i", 'a', 2, 3);
 	return (0);
 }
