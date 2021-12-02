@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/02 17:58:20 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/02 22:21:31 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(void)
 	char	c;
 	
 	ptr = &c;
-	ft_printf("First element %c, second element %d, third element %i", 'a', 2, 3);
-	ft_printf("First element %X, second element %x, third element %%", 0, 2, 3);
+	ft_printf("First %0c, second %-00000d, third %.....i", 'a', 2, 3);
+	// ft_printf("First element %X, second element %x, third element %%", 0, 2, 3);
 	// printf("First element %c,second element %d, third element %i", 'a', 2, 3);
 	return (0);
 }
