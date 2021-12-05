@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/05 21:15:16 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/12/05 21:22:37 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int	ft_printf(const char *restrict format, ...)
 	if (ord == -1)
 	{
 		write (1, "Incorrect type input\n", 21);
-		return (0);
+		return (-1);
 	}
 	va_start(arg_ptr, format);
 	i = ft_output(format, result, arg_ptr);
