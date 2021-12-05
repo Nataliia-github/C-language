@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/05 19:52:17 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/05 21:15:16 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,36 +83,43 @@ static int	ft_fill_result(const char *restrict format, t_print *result)
 
 static void	ft_print_kind_str(t_print *result,const char *format,int ord,va_list arg_ptr)
 {
+	if (format[result[ord].end] == 'c')
+		ft_putchar_fd(va_arg(arg_ptr, int), 1);
+	else if (format[result[ord].end] == 's')
+		ft_putstr_fd(va_arg(arg_ptr, char *), 1);
+	else if (format[result[ord].end] == 'p')
+		printf("#%i : void * Hexadecimal\n", ord);
+	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
+		ft_putstr_fd(ft_itoa(va_arg(arg_ptr, int)), 1);
+	else if (format[result[ord].end] == 'u')
+		ft_putstr_fd(ft_itoa(va_arg(arg_ptr, int)), 1);
+	else if (format[result[ord].end] == 'x')
+		printf("#%i : Hexadecimal\n", ord);
+	else if (format[result[ord].end] == 'X')
+		printf("#%i : HEXADECIMAL\n", ord);
+	else if (format[result[ord].end] == '%')
+		ft_putchar_fd('%', 1);
+}
+
+static int ft_output(const char *format, t_print *result, va_list arg_ptr)
+{
 	int	i;
-	char *c;
+	int	ord;
 
 	i = 0;
-	while (i < ord && format[result[i].end] != '\0')
+	ord = 0;
+	while(format[i] != '\0')
 	{
-		if (format[result[i].end] == 'c')
+		if (i == result[ord].start)
 		{
-			printf("#%i : Char = %c\n", i, va_arg(arg_ptr, int));
+			ft_print_kind_str(result, format, ord, arg_ptr);
+			i += result[ord].lenght;
+			++ord;
 		}
-		else if (format[result[i].end] == 's')
-			printf("#%i : String = %s\n", i, va_arg(arg_ptr, char *));
-		else if (format[result[i].end] == 'p')
-			printf("#%i : void * Hexadecimal\n", i);
-		else if (format[result[i].end] == 'i' || format[result[i].end] == 'd')
-		{
-			// printf("#%i : Integer/Decimal = %i\n", i, va_arg(arg_ptr, int));
-			c = ft_itoa(va_arg(arg_ptr, int));
-			printf("#%i : Integer/Decimal = %s\n", i, c);
-		}
-		else if (format[result[i].end] == 'u')
-			printf("#%i : Unsigned Decimal = %u\n", i, va_arg(arg_ptr, unsigned int));
-		else if (format[result[i].end] == 'x')
-			printf("#%i : Hexadecimal\n", i);
-		else if (format[result[i].end] == 'X')
-			printf("#%i : HEXADECIMAL\n", i);
-		else if (format[result[i].end] == '%')
-			printf("#%i : Percent\n", i);
+		ft_putchar_fd(format[i], 1);
 		++i;
 	}
+	return (i);
 }
 
 int	ft_printf(const char *restrict format, ...)
@@ -130,23 +137,15 @@ int	ft_printf(const char *restrict format, ...)
 	if (result == NULL)
 		return (-1);
 	i = 0;
-	printf("\n'%s' - lenght = %zu\n", format, ft_strlen(format));
 	ord = ft_fill_result(format, result);
 	if (ord == -1)
 	{
 		write (1, "Incorrect type input\n", 21);
 		return (0);
 	}
-	printf("ord = %d\n", ord);
 	va_start(arg_ptr, format);
-	ft_print_kind_str(result, format, ord, arg_ptr);
+	i = ft_output(format, result, arg_ptr);
 	va_end(arg_ptr);
-	i = 0;
-	while (i < ord)
-	{
-		printf("#%d   %d : %i     lenght = %i\n", result[i].order, result[i].start, result[i].end, result[i].lenght);
-		++i;
-	}
 	free (result);
-	return (print_lenght);
+	return (i);
 }
