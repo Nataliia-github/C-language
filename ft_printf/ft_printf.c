@@ -6,17 +6,19 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/06 19:25:57 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/12/06 20:45:16 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include "../libft/libft.h"
 #include "ft_printf.h"
+#include "libft/libft.h"
 
-int	ft_flag_start(t_print *result, int i, int flag, int ord)
+static int	ft_flag_start(t_print *result, int i, int flag, int ord)
 {
 	result[ord].start = i;
 	result[ord].order = ord;
@@ -24,7 +26,7 @@ int	ft_flag_start(t_print *result, int i, int flag, int ord)
 	return (flag);
 }
 
-int	ft_flag_percent(t_print *result, int i, int flag, int ord)
+static int	ft_flag_percent(t_print *result, int i, int flag, int ord)
 {
 	result[ord].end = i;
 	result[ord].lenght = result[ord].end - result[ord].start + 1;
@@ -33,7 +35,7 @@ int	ft_flag_percent(t_print *result, int i, int flag, int ord)
 	return (flag);
 }
 
-int	ft_flag_end(t_print *result, int i, int flag, int ord,const char *format)
+static int	ft_flag_end(t_print *result, int i, int flag, int ord, const char *format)
 {
 	char	*print_symb;
 
@@ -42,7 +44,6 @@ int	ft_flag_end(t_print *result, int i, int flag, int ord,const char *format)
 	{
 		result[ord].end = i;
 		result[ord].lenght = result[ord].end - result[ord].start + 1;
-		// result[ord].arg_str = malloc((result[ord].lenght + 1) * sizeof(char *));
 		flag = 0;
 	}
 	else /*if ((ft_strchr(print_form, format[i]) == 0))*/
@@ -53,7 +54,7 @@ int	ft_flag_end(t_print *result, int i, int flag, int ord,const char *format)
 	return (flag);
 }
 
-static int	ft_fill_result(const char *restrict format, t_print *result)
+static int	ft_fill_result(const char *format, t_print *result)
 {
 	int		ord;
 	int		i;
@@ -94,9 +95,9 @@ static void	ft_print_kind_str(t_print *result,const char *format,int ord,va_list
 	else if (format[result[ord].end] == 'u')
 		ft_putstr_fd(ft_itoa(va_arg(arg_ptr, int)), 1);
 	else if (format[result[ord].end] == 'x')
-		printf("#%i : Hexadecimal\n", ord);
+		ft_putnbr_base(va_arg(arg_ptr, int), "0123456789abcdef");
 	else if (format[result[ord].end] == 'X')
-		printf("#%i : HEXADECIMAL\n", ord);
+		ft_putnbr_base(va_arg(arg_ptr, int), "0123456789ABCDEF");
 	else if (format[result[ord].end] == '%')
 		ft_putchar_fd('%', 1);
 }
@@ -122,7 +123,7 @@ static int ft_output(const char *format, t_print *result, va_list arg_ptr)
 	return (i);
 }
 
-int	ft_printf(const char *restrict format, ...)
+int	ft_printf(const char *format, ...)
 {
 	t_print	*result;
 	int		i;

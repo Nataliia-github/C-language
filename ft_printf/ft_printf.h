@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/05 18:02:02 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/06 20:27:22 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_print
 	int		lenght;
 }			t_print;
 
-int		ft_printf(const char *restrict input_str, ...);
+int		ft_printf(const char *input_str, ...);
 void	ft_putnbr_base(int nbr, char *base);
 
 #endif
