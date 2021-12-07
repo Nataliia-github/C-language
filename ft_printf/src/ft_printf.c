@@ -6,84 +6,19 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/06 20:45:16 by nataliya      ########   odam.nl         */
+/*   Updated: 2021/12/07 14:59:53 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "../libft/libft.h"
 #include "ft_printf.h"
-#include "libft/libft.h"
 
-static int	ft_flag_start(t_print *result, int i, int flag, int ord)
+static int	ft_print_kind_str(t_print *result, const char *format, \
+	int ord, va_list arg_ptr)
 {
-	result[ord].start = i;
-	result[ord].order = ord;
-	flag = 1;
-	return (flag);
-}
+	int	i;
 
-static int	ft_flag_percent(t_print *result, int i, int flag, int ord)
-{
-	result[ord].end = i;
-	result[ord].lenght = result[ord].end - result[ord].start + 1;
-	// result[ord].arg_str = malloc((result[ord].lenght + 1) * sizeof(char *));
-	flag = 0;
-	return (flag);
-}
-
-static int	ft_flag_end(t_print *result, int i, int flag, int ord, const char *format)
-{
-	char	*print_symb;
-
-	print_symb = "cspdiuxX%";
-	if (ft_strchr(print_symb, format[i]) != 0)
-	{
-		result[ord].end = i;
-		result[ord].lenght = result[ord].end - result[ord].start + 1;
-		flag = 0;
-	}
-	else /*if ((ft_strchr(print_form, format[i]) == 0))*/
-	{
-		flag = 0;
-		return (-1);
-	}
-	return (flag);
-}
-
-static int	ft_fill_result(const char *format, t_print *result)
-{
-	int		ord;
-	int		i;
-	int		flag;
-
-	ord = 0;
 	i = 0;
-	flag = 0;
-	while (format[i] != '\0')
-	{		
-		if (format[i] == '%' && flag == 0)
-			flag = ft_flag_start(result, i, flag, ord);
-		else if (format[i] == '%' && flag == 1)
-		{
-			flag = ft_flag_percent(result, i, flag, ord);
-			ord++;
-		}
-		else if (format[i] != '%' && flag == 1)
-		{
-			flag = ft_flag_end(result, i, flag, ord, format);
-			ord++;
-		}
-		++i;
-	}
-	return (ord);
-}
-
-static void	ft_print_kind_str(t_print *result,const char *format,int ord,va_list arg_ptr)
-{
 	if (format[result[ord].end] == 'c')
 		ft_putchar_fd(va_arg(arg_ptr, int), 1);
 	else if (format[result[ord].end] == 's')
@@ -95,26 +30,26 @@ static void	ft_print_kind_str(t_print *result,const char *format,int ord,va_list
 	else if (format[result[ord].end] == 'u')
 		ft_putstr_fd(ft_itoa(va_arg(arg_ptr, int)), 1);
 	else if (format[result[ord].end] == 'x')
-		ft_putnbr_base(va_arg(arg_ptr, int), "0123456789abcdef");
+		i = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789abcdef");
 	else if (format[result[ord].end] == 'X')
-		ft_putnbr_base(va_arg(arg_ptr, int), "0123456789ABCDEF");
+		i = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789ABCDEF");
 	else if (format[result[ord].end] == '%')
 		ft_putchar_fd('%', 1);
+	return (i);
 }
 
-static int ft_output(const char *format, t_print *result, va_list arg_ptr)
+static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 {
 	int	i;
 	int	ord;
 
 	i = 0;
 	ord = 0;
-	while(format[i] != '\0')
+	while (format[i] != '\0')
 	{
 		if (i == result[ord].start)
 		{
-			ft_print_kind_str(result, format, ord, arg_ptr);
-			i += result[ord].lenght;
+			i += ft_print_kind_str(result, format, ord, arg_ptr);
 			++ord;
 		}
 		ft_putchar_fd(format[i], 1);

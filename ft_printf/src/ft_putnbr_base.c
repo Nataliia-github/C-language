@@ -6,7 +6,7 @@
 /*   By: ncheban <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 14:41:04 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/11/30 17:21:56 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/07 15:00:25 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_check_base(char	*base)
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int	ft_putnbr_base(int nbr, char *base)
 {
 	int		i;
 	int		temp_nbr;
@@ -63,7 +63,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		while (base[size_base] != '\0')
 			++size_base;
 		if (size_base == 0 || size_base == 1)
-			return ;
+			return (-1);
 		temp_nbr = nbr;
 		i = 0;
 		while (temp_nbr > 0)
@@ -75,4 +75,5 @@ void	ft_putnbr_base(int nbr, char *base)
 		while (--i >= 0)
 			ft_putchar_fd(rev_res[i], 1);
 	}
+	return (ft_strlen(rev_res));
 }
