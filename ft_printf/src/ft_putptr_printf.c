@@ -1,17 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putchar.c                                       :+:    :+:            */
+/*   ft_putptr_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/07 15:03:54 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 15:04:49 by ncheban       ########   odam.nl         */
+/*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/12/07 18:27:48 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putchar_fd(char c, int fd)
+#include "../libft/libft.h"
+#include "ft_printf.h"
+
+int	ft_putptr_printf(void *ptr )
 {
-	write (fd, &c, 1);
-	re
+	int		i;
+	void	*temp_ptr;
+	int		size_base;
+	void	*rev_res;
+
+	temp_ptr = ptr;
+	i = 0;
+	while (temp_ptr > 0)
+	{
+		rev_res[i] = temp_ptr % 16;
+		temp_ptr = temp_ptr / 16;
+		++i;
+	}	
+	while (--i >= 0)
+		ft_putchar_fd(rev_res[i], 1);
+	return (i);
 }

@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2021/12/07 14:33:38 by ncheban       ########   odam.nl          #
+#    Updated: 2021/12/07 18:18:22 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ INCLIB_NAME := libft.a
 CC := gcc
 OBJFILES:= 	obj/ft_printf.o \
 			obj/ft_putnbr_base.o \
-			obj/ft_fill_struct.o
+			obj/ft_fill_struct.o \
+			obj/ft_putchar_printf.o \
+			obj/ft_putstr_printf.o \
+			obj/ft_utoa.o
 
 TESTFILE:= src/test_ft_printf.c
 

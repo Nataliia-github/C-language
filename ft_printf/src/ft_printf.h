@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 14:43:41 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/07 18:40:05 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ typedef struct s_print
 int		ft_printf(const char *input_str, ...);
 int		ft_putnbr_base(int nbr, char *base);
 int		ft_fill_result(const char *format, t_print *result);
+int		ft_putchar_printf(char c, int fd);
+int		ft_putstr_printf(char *s, int fd);
+char	*ft_utoa(unsigned int n);
 
 #endif

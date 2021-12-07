@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putptr.c                                        :+:    :+:            */
+/*   ft_putstr_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 14:54:28 by ncheban       ########   odam.nl         */
+/*   Created: 2021/12/07 16:31:11 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/12/07 16:50:22 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include "ft_printf.h"
+#include "../libft/libft.h"
 
-int	ft_putptr(char *ptr )
+int	ft_putstr_printf(char *s, int fd)
 {
-	int		i;
-	char	*temp_ptr;
-	int		size_base;
-	char	*rev_res;
+	int	i;
 
-	temp_ptr = ptr;
-	i = 0;
-	while (temp_ptr > 0)
+	// i = 0;
+	// if (s != NULL)
+	// {
+	// 	while (s[i] != '\0')
+	// 	{
+	// 		ft_putchar_fd(s[i], fd);
+	// 		++i;
+	// 	}
+	// }
+	i = -1;
+	if (s != 0)
 	{
-		rev_res[i] = temp_ptr % 16;
-		temp_ptr = temp_ptr / 16;
-		++i;
-	}	
-	while (--i >= 0)
-		ft_putchar_fd(rev_res[i], 1);
-	return (i);
+		while (s[++i] != '\0')
+			ft_putchar_fd(s[i], fd);
+	}
+	return (ft_strlen(s));
 }

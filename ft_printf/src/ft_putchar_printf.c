@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_printf.c                                   :+:    :+:            */
+/*   ft_putchar_printf.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 18:36:15 by ncheban       ########   odam.nl         */
+/*   Created: 2021/12/07 15:03:54 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/12/07 16:36:07 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main(void)
+int	ft_putchar_printf(char c, int fd)
 {
-	char	*ptr;
-	char	c;
-
-	c = 'c';
-	ptr = &c;
-	ft_printf("Hello %c, %i, %d, %i, %u, %s, %%, %x, %X\n", 'a', \
-		-5, 2, 3, -1, "abc", -200, 123456789);
-	printf("\nHello %c, %i, %d, %i, %u, %s, %%, %x, %X\n", 'a', \
-		-5, 2, 3, -1, "abc", -200, 123456789);
-	return (0);
+	write (fd, &c, 1);
+	return (1);
 }

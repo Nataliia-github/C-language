@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 14:59:53 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/07 18:11:13 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,62 +17,68 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 	int ord, va_list arg_ptr)
 {
 	int	i;
+	int	print_len;
 
 	i = 0;
+	print_len = 0;
 	if (format[result[ord].end] == 'c')
-		ft_putchar_fd(va_arg(arg_ptr, int), 1);
+		print_len = ft_putchar_printf(va_arg(arg_ptr, int), 1);
 	else if (format[result[ord].end] == 's')
-		ft_putstr_fd(va_arg(arg_ptr, char *), 1);
+		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), 1);
 	else if (format[result[ord].end] == 'p')
 		printf("#%i : void * Hexadecimal\n", ord);
 	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
-		ft_putstr_fd(ft_itoa(va_arg(arg_ptr, int)), 1);
+		print_len = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789");
 	else if (format[result[ord].end] == 'u')
-		ft_putstr_fd(ft_itoa(va_arg(arg_ptr, int)), 1);
+		print_len = ft_putstr_printf(ft_utoa(va_arg(arg_ptr, unsigned int)), 1);
 	else if (format[result[ord].end] == 'x')
-		i = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789abcdef");
+		print_len = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789abcdef");
 	else if (format[result[ord].end] == 'X')
-		i = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789ABCDEF");
+		print_len = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789ABCDEF");
 	else if (format[result[ord].end] == '%')
-		ft_putchar_fd('%', 1);
-	return (i);
+		print_len = ft_putchar_printf('%', 1);
+	return (print_len - result[ord].lenght);
 }
 
 static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 {
 	int	i;
 	int	ord;
+	int	print_len;
 
 	i = 0;
 	ord = 0;
+	print_len = 0;
 	while (format[i] != '\0')
 	{
 		if (i == result[ord].start)
 		{
-			i += ft_print_kind_str(result, format, ord, arg_ptr);
+			print_len += ft_print_kind_str(result, format, ord, arg_ptr);
+			i = result[ord].end + 1;
 			++ord;
 		}
-		ft_putchar_fd(format[i], 1);
-		++i;
+		else
+		{
+			print_len += ft_putchar_printf(format[i], 1);
+			++i;
+		}
 	}
-	return (i);
+	return (print_len);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	t_print	*result;
-	int		i;
 	int		ord;
 	va_list	arg_ptr;
-	int		print_lenght;
+	int		print_len;
 
-	print_lenght = 0;
+	print_len = 0;
 	if (format == NULL)
 		return (0);
 	result = (t_print *)malloc(sizeof(t_print));
 	if (result == NULL)
 		return (-1);
-	i = 0;
 	ord = ft_fill_result(format, result);
 	if (ord == -1)
 	{
@@ -80,8 +86,9 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	}
 	va_start(arg_ptr, format);
-	i = ft_output(format, result, arg_ptr);
+	print_len = ft_output(format, result, arg_ptr);
 	va_end(arg_ptr);
 	free (result);
-	return (i);
+	printf("Output lenght = %i\n", print_len);
+	return (print_len);
 }
