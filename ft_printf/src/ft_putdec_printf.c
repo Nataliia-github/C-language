@@ -1,48 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putptr_printf.c                                 :+:    :+:            */
+/*   ft_putdec_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 16:49:43 by ncheban       ########   odam.nl         */
+/*   Created: 2021/12/09 16:38:13 by ncheban       #+#    #+#                 */
+/*   Updated: 2021/12/09 17:41:17 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_putptr(unsigned long long ptr, int print_len, int fd)
+static int	ft_putdec(int num, int print_len, int fd)
 {
-	if (ptr >= 16)
+	if (num >= 10)
 	{
-		ft_putptr(ptr / 16, ++print_len, fd);
-		ft_putptr(ptr % 16, ++print_len, fd);
+		ft_putdec(num / 10, ++print_len, fd);
+		ft_putdec(num % 10, ++print_len, fd);
 	}
 	else
 	{
-		if (ptr < 10)
-			print_len = ft_putchar_printf((ptr + '0'), fd);
+		if (num < 10)
+			print_len += ft_putchar_printf((num + '0'), fd);
 		else
-			print_len = ft_putchar_printf((ptr - 10 + 'a'), fd);
+			print_len += ft_putchar_printf((num - 10 + '0'), fd);
 	}
 	return (print_len);
 }
 
-int	ft_putptr_printf(unsigned long long ptr, int fd)
+int	ft_putdec_printf(int num, int fd)
 {
 	int		print_len;
 
-	write(1, "0x", 2);
-	print_len = 2;
-	if (ptr == 0)
+	print_len = 0;
+	if (num == 0)
 	{
-		write (1, "0", 1);
+		write (1, "0", fd);
+		return (++print_len);
+	}
+	if (num < 0)
+	{
+		write (1, "-", fd);
+		num = num *(-1);
 		++print_len;
 	}
-	else
-		print_len += ft_putptr(ptr, print_len, fd);
-	// printf("\nPutptr = %i\n", print_len);
+	print_len += ft_putdec(num, print_len, fd);
+	// printf("\nPutdec = %i\n", print_len);
 	return (print_len);
 }

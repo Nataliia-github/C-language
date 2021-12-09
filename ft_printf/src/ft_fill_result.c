@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_fill_struct.c                                   :+:    :+:            */
+/*   ft_fill_result.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:08:17 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 14:29:10 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/09 20:10:28 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ static int	ft_flag_percent(t_print *result, int i, int flag, int ord)
 	return (flag);
 }
 
-static int	ft_flag_end(t_print *result, int i, int flag, \
-	int ord, const char	*format)
+static int	ft_flag_end(t_print *result, int i, int ord, const char	*format)
 {
 	char	*print_symb;
+	int		flag;
 
+	flag = 1;
 	print_symb = "cspdiuxX%";
 	if (ft_strchr(print_symb, format[i]) != 0)
 	{
@@ -41,7 +42,7 @@ static int	ft_flag_end(t_print *result, int i, int flag, \
 		result[ord].lenght = result[ord].end - result[ord].start + 1;
 		flag = 0;
 	}
-	else /*if ((ft_strchr(print_form, format[i]) == 0))*/
+	else
 	{
 		flag = 0;
 		return (-1);
@@ -69,7 +70,7 @@ int	ft_fill_result(const char *format, t_print *result)
 		}
 		else if (format[i] != '%' && flag == 1)
 		{
-			flag = ft_flag_end(result, i, flag, ord, format);
+			flag = ft_flag_end(result, i, ord, format);
 			ord++;
 		}
 		++i;

@@ -6,7 +6,7 @@
 /*   By: ncheban <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 14:41:04 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 18:39:41 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/09 16:32:14 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int	ft_putnbr_base(int nbr, char *base)
 		while (--i >= 0)
 			ft_putchar_fd(rev_res[i], 1);
 	}
+	printf("\nputnbr_base = %zu\n", ft_strlen(rev_res));
 	return (ft_strlen(rev_res));
 }

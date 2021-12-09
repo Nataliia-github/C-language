@@ -1,48 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putptr_printf.c                                 :+:    :+:            */
+/*   ft_puthex_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 16:49:43 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/09 19:05:33 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_putptr(unsigned long long ptr, int print_len, int fd)
+static int	ft_puthex(unsigned long long hex, int print_len, int fd, char upper)
 {
-	if (ptr >= 16)
+	if (hex >= 16)
 	{
-		ft_putptr(ptr / 16, ++print_len, fd);
-		ft_putptr(ptr % 16, ++print_len, fd);
+		ft_puthex(hex / 16, ++print_len, fd, upper);
+		ft_puthex(hex % 16, ++print_len, fd, upper);
 	}
 	else
 	{
-		if (ptr < 10)
-			print_len = ft_putchar_printf((ptr + '0'), fd);
+		if (hex < 10 && hex >= 0)
+		{
+			if (upper == 'X')
+				print_len += ft_putchar_printf(ft_toupper(hex + '0'), fd);
+			else
+				print_len += ft_putchar_printf((hex + '0'), fd);
+		}
 		else
-			print_len = ft_putchar_printf((ptr - 10 + 'a'), fd);
+		{
+			if (upper == 'X')
+				print_len += ft_putchar_printf(ft_toupper(hex - 10 + 'a'), fd);
+			else
+				print_len += ft_putchar_printf((hex - 10 + 'a'), fd);
+		}	
 	}
 	return (print_len);
 }
 
-int	ft_putptr_printf(unsigned long long ptr, int fd)
+int	ft_puthex_printf(unsigned long long hex, int fd, char upper)
 {
 	int		print_len;
 
-	write(1, "0x", 2);
-	print_len = 2;
-	if (ptr == 0)
+	print_len = 0;
+	if (hex < 0)
 	{
 		write (1, "0", 1);
-		++print_len;
+		return(++print_len);
 	}
 	else
-		print_len += ft_putptr(ptr, print_len, fd);
-	// printf("\nPutptr = %i\n", print_len);
+		print_len += ft_puthex(hex, print_len, fd, upper);
 	return (print_len);
 }

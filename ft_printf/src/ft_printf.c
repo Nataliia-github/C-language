@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/07 18:11:13 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/09 20:28:19 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 	else if (format[result[ord].end] == 's')
 		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), 1);
 	else if (format[result[ord].end] == 'p')
-		printf("#%i : void * Hexadecimal\n", ord);
+		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long), 1);
 	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
-		print_len = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789");
+		print_len = ft_putdec_printf(va_arg(arg_ptr, int), 1);
 	else if (format[result[ord].end] == 'u')
 		print_len = ft_putstr_printf(ft_utoa(va_arg(arg_ptr, unsigned int)), 1);
-	else if (format[result[ord].end] == 'x')
-		print_len = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789abcdef");
-	else if (format[result[ord].end] == 'X')
-		print_len = ft_putnbr_base(va_arg(arg_ptr, int), "0123456789ABCDEF");
+	else if (format[result[ord].end] == 'x' || format[result[ord].end] == 'X')
+		print_len = ft_puthex_printf(va_arg(arg_ptr, int), \
+			1, format[result[ord].end]);
 	else if (format[result[ord].end] == '%')
 		print_len = ft_putchar_printf('%', 1);
-	return (print_len - result[ord].lenght);
+	return (print_len);
 }
 
 static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
@@ -73,22 +72,19 @@ int	ft_printf(const char *format, ...)
 	va_list	arg_ptr;
 	int		print_len;
 
-	print_len = 0;
 	if (format == NULL)
 		return (0);
 	result = (t_print *)malloc(sizeof(t_print));
 	if (result == NULL)
-		return (-1);
+		return (0);
 	ord = ft_fill_result(format, result);
 	if (ord == -1)
 	{
-		write (1, "Incorrect type input\n", 21);
 		return (-1);
 	}
 	va_start(arg_ptr, format);
 	print_len = ft_output(format, result, arg_ptr);
 	va_end(arg_ptr);
 	free (result);
-	printf("Output lenght = %i\n", print_len);
 	return (print_len);
 }
