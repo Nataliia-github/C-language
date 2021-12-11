@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 19:45:58 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/11 14:18:12 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include "../libft/libft.h"
+# include "../libft/libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFF_SIZE 5000
@@ -36,7 +36,6 @@ typedef struct s_print
 }			t_print;
 
 int		ft_printf(const char *input_str, ...);
-int		ft_putnbr_base(int nbr, char *base);
 int		ft_fill_result(const char *format, t_print *result);
 int		ft_putchar_printf(char c, int fd);
 int		ft_putstr_printf(char *s, int fd);

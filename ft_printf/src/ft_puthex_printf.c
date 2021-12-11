@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 19:05:33 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/11 14:38:21 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,6 @@ int	ft_puthex_printf(unsigned long long hex, int fd, char upper)
 	int		print_len;
 
 	print_len = 0;
-	if (hex < 0)
-	{
-		write (1, "0", 1);
-		return(++print_len);
-	}
-	else
-		print_len += ft_puthex(hex, print_len, fd, upper);
+	print_len += ft_puthex(hex, print_len, fd, upper);
 	return (print_len);
 }

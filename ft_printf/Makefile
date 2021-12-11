@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2021/12/09 20:02:35 by ncheban       ########   odam.nl          #
+#    Updated: 2021/12/11 19:52:40 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ INCLIB_DIR := libft/
 INCLIB_NAME := libft.a
 CC := gcc
 OBJFILES:= 	obj/ft_printf.o \
-			obj/ft_putnbr_base.o \
 			obj/ft_fill_result.o \
 			obj/ft_putchar_printf.o \
 			obj/ft_putstr_printf.o \
@@ -61,6 +60,12 @@ re: fclean all
 test: re
 	$(CC) $(CFLAGS) $(TESTFILE) $(NAME) $(INCLIB_DIR)$(INCLIB_NAME)
 	./a.out
+
+.PHONY: leaks
+leaks: CC = .brew/opt/llvm/bin/clang
+leaks: CFLAGS += -mlinker-version=450 -fsanitize=address -g
+leaks: fclean $(NAME)
+         ASAN_OPTIONS=detect_leaks=1 ./$(NAME)
 
 .PHONY: fcleantest
 fcleantest: fclean

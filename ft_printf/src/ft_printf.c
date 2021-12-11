@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 20:28:19 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/11 21:04:18 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 	return (print_len);
 }
 
+// static void	ft_init_result(t_print *result, int ord)
+// {
+// 	result[ord].start = 0;
+// 	result[ord].end = 0;
+// 	result[ord].order = 0;
+// 	result[ord].lenght = 0;
+// }
+
 static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 {
 	int	i;
@@ -62,7 +70,24 @@ static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 			++i;
 		}
 	}
+	// ft_init_result(result, ord);
 	return (print_len);
+}
+
+static int	ft_count_perc(const char *format)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%' && format[i + 1] != '%')
+			++j;
+		++i;
+	}
+	return (j);
 }
 
 int	ft_printf(const char *format, ...)
@@ -74,15 +99,19 @@ int	ft_printf(const char *format, ...)
 
 	if (format == NULL)
 		return (0);
-	result = (t_print *)malloc(sizeof(t_print));
+	result = (t_print *)malloc(ft_count_perc(format) * sizeof(t_print));
 	if (result == NULL)
 		return (0);
+	ord = 0;
+	// ft_init_result(result, ord);
 	ord = ft_fill_result(format, result);
 	if (ord == -1)
 	{
+		free (result);
 		return (-1);
 	}
 	va_start(arg_ptr, format);
+	print_len = 0;
 	print_len = ft_output(format, result, arg_ptr);
 	va_end(arg_ptr);
 	free (result);
