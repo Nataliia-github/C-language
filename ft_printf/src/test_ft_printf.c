@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/11 19:44:47 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 12:33:12 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 	// // ft_printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	// printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	ft_printf("%c %c %c\n", '0', 0, '1');
-	// printf("%c %c %c\n", '0', 0, '1');
+	printf("%c %c %c\n", '0', 0, '1');
 	// printf("\n");
 	system("leaks a.out");
 	// exit (0);

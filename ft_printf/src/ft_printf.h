@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/11 14:18:12 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 11:51:05 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int		ft_putptr_printf(unsigned long long ptr, int fd);
 int		ft_putdec_printf(int num, int fd);
 int		ft_puthex_printf(unsigned long long hex, int fd, char upper);
 char	*ft_utoa(unsigned int n);
+int		ft_putuni_printf(unsigned int arg, int fd);
 
 #endif

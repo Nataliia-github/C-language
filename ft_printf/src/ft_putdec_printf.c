@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/09 16:38:13 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 17:41:17 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 11:57:32 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int	ft_putdec(int num, int print_len, int fd)
 	{
 		if (num < 10)
 			print_len += ft_putchar_printf((num + '0'), fd);
-		else
-			print_len += ft_putchar_printf((num - 10 + '0'), fd);
+		// else
+		// 	print_len += ft_putchar_printf((num - 10 + '0'), fd);
 	}
 	return (print_len);
 }

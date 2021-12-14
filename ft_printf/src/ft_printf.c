@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/11 21:04:18 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 12:35:05 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
 		print_len = ft_putdec_printf(va_arg(arg_ptr, int), 1);
 	else if (format[result[ord].end] == 'u')
-		print_len = ft_putstr_printf(ft_utoa(va_arg(arg_ptr, unsigned int)), 1);
+		print_len = ft_putuni_printf(va_arg(arg_ptr, unsigned int), 1);
 	else if (format[result[ord].end] == 'x' || format[result[ord].end] == 'X')
 		print_len = ft_puthex_printf(va_arg(arg_ptr, int), \
 			1, format[result[ord].end]);
@@ -38,14 +38,6 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 		print_len = ft_putchar_printf('%', 1);
 	return (print_len);
 }
-
-// static void	ft_init_result(t_print *result, int ord)
-// {
-// 	result[ord].start = 0;
-// 	result[ord].end = 0;
-// 	result[ord].order = 0;
-// 	result[ord].lenght = 0;
-// }
 
 static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 {
@@ -70,7 +62,6 @@ static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 			++i;
 		}
 	}
-	// ft_init_result(result, ord);
 	return (print_len);
 }
 
@@ -103,7 +94,6 @@ int	ft_printf(const char *format, ...)
 	if (result == NULL)
 		return (0);
 	ord = 0;
-	// ft_init_result(result, ord);
 	ord = ft_fill_result(format, result);
 	if (ord == -1)
 	{
