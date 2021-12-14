@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/04 16:19:35 by ncheban       #+#    #+#                  #
-#    Updated: 2021/11/23 20:03:55 by ncheban       ########   odam.nl          #
+#    Updated: 2021/12/14 20:45:50 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ BONUS_OBJFILES :=	obj/ft_lstnew.o \
 					obj/ft_lstdelone.o \
 					obj/ft_lstclear.o \
 					obj/ft_lstiter.o \
-					obj/ft_lstmap.o
+					obj/ft_lstmap.o \
+					obj/ft_putnbr_printf.o
 
 CFLAGS?= -Wall -Wextra -Werror
 

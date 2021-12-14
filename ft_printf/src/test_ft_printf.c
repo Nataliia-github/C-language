@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 19:24:30 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 19:42:41 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,23 @@ int	main(void)
 	// ft_printf(" %%%%%% ");
 	// printf(" %%%%%% ");
 
-	ft_printf(" %i \n", -1);
-	printf(" %i \n", -1);
+	// ft_printf(" %i \n", -1);
+	// printf(" %i \n", -1);
 	
-	ft_printf(" %i \n", 100);
-	printf(" %i \n", 100);
+	// ft_printf(" %i \n", 100);
+	// printf(" %i \n", 100);
 	
-	ft_printf(" %i \n", 101);
-	printf(" %i \n", 101);
+	// ft_printf(" %i \n", 101);
+	// printf(" %i \n", 101);
 	
-	ft_printf(" %i \n", 2147483647);
-	printf(" %i \n", 2147483647);
+	// ft_printf(" %i \n", 2147483647);
+	// printf(" %i \n", 2147483647);
 	
-	ft_printf(" %i \n", -2147483648);
-	printf(" %i \n", -2147483648);
+	// ft_printf(" %i \n", -2147483648);
+	// printf(" %i \n", -2147483648);
+
+	ft_printf("1 %x \n", -1);
+	printf("2 %x \n", -1);
 
 	printf("\n");
 	// system("leaks a.out");

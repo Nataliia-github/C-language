@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr_base.c                                   :+:    :+:            */
+/*   ft_putnbr_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 14:41:04 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/09 16:32:14 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 20:47:53 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-int	ft_nbr_negative(int nbr)
+unsigned long long	ft_nbr_negative(unsigned long long nbr)
 {
 	if (nbr < 0)
 	{
@@ -49,12 +49,12 @@ int	ft_check_base(char	*base)
 	return (1);
 }
 
-int	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_printf(unsigned long long nbr, char *base)
 {
-	int		i;
-	int		temp_nbr;
-	int		size_base;
-	char	rev_res[500];
+	int					i;
+	unsigned long long	temp_nbr;
+	int					size_base;
+	char				rev_res[500];
 
 	if (ft_check_base(base) != 0)
 	{
@@ -75,6 +75,5 @@ int	ft_putnbr_base(int nbr, char *base)
 		while (--i >= 0)
 			ft_putchar_fd(rev_res[i], 1);
 	}
-	printf("\nputnbr_base = %zu\n", ft_strlen(rev_res));
-	return (ft_strlen(rev_res));
+	return (0);
 }
