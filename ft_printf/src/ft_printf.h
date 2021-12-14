@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 18:16:21 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 19:01:16 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_printf(const char *input_str, ...);
 int		ft_fill_result(const char *format, t_print *result);
 int		ft_putchar_printf(char c, int fd);
 int		ft_putstr_printf(char *s, int fd);
-int		ft_putptr_printf(uintptr_t ptr, int fd);
+int		ft_putptr_printf(unsigned long ptr, int fd);
 int		ft_putdec_printf(int num, int fd);
 int		ft_puthex_printf(unsigned long long hex, int fd, char upper);
 char	*ft_utoa(unsigned int n);

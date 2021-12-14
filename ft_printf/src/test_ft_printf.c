@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 18:53:31 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 19:10:10 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@ int	main(void)
 	// printf(" %p ", 9223372036854775808);
 
 
-	ft_printf(" NULL %s NULL ", NULL);
-	printf(" NULL %s NULL ", NULL);
+	// ft_printf(" NULL %s NULL ", NULL);
+	// printf(" NULL %s NULL ", NULL);
+
+	ft_printf(" %%%%%% ");
+	printf(" %%%%%% ");
 
 	printf("\n");
-	// system("leaks a.out");
+	system("leaks a.out");
 	// exit (0);
 	return (0);
 }

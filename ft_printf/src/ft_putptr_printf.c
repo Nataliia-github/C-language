@@ -6,14 +6,14 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 18:23:59 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 19:01:11 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_putptr(unsigned long long ptr, int print_len, int fd)
+static int	ft_putptr(unsigned long ptr, int print_len, int fd)
 {
 	if (ptr >= 16)
 	{
@@ -30,7 +30,7 @@ static int	ft_putptr(unsigned long long ptr, int print_len, int fd)
 	return (print_len);
 }
 
-int	ft_putptr_printf(uintptr_t ptr, int fd)
+int	ft_putptr_printf(unsigned long ptr, int fd)
 {
 	int		print_len;
 
