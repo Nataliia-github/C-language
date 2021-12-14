@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 12:35:05 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 18:52:26 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,16 @@ int	ft_printf(const char *format, ...)
 	if (result == NULL)
 		return (0);
 	ord = 0;
-	ord = ft_fill_result(format, result);
-	if (ord == -1)
-	{
-		free (result);
-		return (-1);
-	}
-	va_start(arg_ptr, format);
 	print_len = 0;
-	print_len = ft_output(format, result, arg_ptr);
-	va_end(arg_ptr);
+	ord = ft_fill_result(format, result);
+	if (ord == 0)
+		print_len = ft_putstr_printf((char *)format, 1);
+	else
+	{
+		va_start(arg_ptr, format);
+		print_len = ft_output(format, result, arg_ptr);
+		va_end(arg_ptr);
+	}
 	free (result);
 	return (print_len);
 }

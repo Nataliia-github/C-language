@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 12:33:12 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/14 18:53:31 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,24 @@ int	main(void)
 	// 	-5, 2, 3, -1, "abc", -1, -200, ptr);
 	// // ft_printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	// printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
-	ft_printf("%c %c %c\n", '0', 0, '1');
-	printf("%c %c %c\n", '0', 0, '1');
-	// printf("\n");
-	system("leaks a.out");
+	// ft_printf("%c %c %c\n", '0', 0, '1');
+	// printf("%c %c %c\n", '0', 0, '1');
+
+	// ft_printf(" %p ", -1);
+	// printf(" %p ", -1);
+
+	// ft_printf(" %p ", -1);
+	// printf(" %p ", -1);
+	
+	// ft_printf(" %p ", 9223372036854775808);
+	// printf(" %p ", 9223372036854775808);
+
+
+	ft_printf(" NULL %s NULL ", NULL);
+	printf(" NULL %s NULL ", NULL);
+
+	printf("\n");
+	// system("leaks a.out");
 	// exit (0);
 	return (0);
 }
