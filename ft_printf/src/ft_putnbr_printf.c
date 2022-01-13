@@ -6,7 +6,7 @@
 /*   By: ncheban <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 14:41:04 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 20:47:53 by ncheban       ########   odam.nl         */
+/*   Updated: 2021/12/18 18:12:04 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_check_base(char	*base)
 	return (1);
 }
 
-void	ft_putnbr_printf(unsigned long long nbr, char *base)
+int	ft_putnbr_printf(unsigned long long nbr, char *base)
 {
 	int					i;
 	unsigned long long	temp_nbr;
