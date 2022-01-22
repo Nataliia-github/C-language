@@ -6,13 +6,14 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 19:42:41 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/01/22 18:19:29 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 #include <stdio.h>
+
 
 int	main(void)
 {
@@ -65,8 +66,13 @@ int	main(void)
 	// ft_printf(" %i \n", -2147483648);
 	// printf(" %i \n", -2147483648);
 
-	ft_printf("1 %x \n", -1);
-	printf("2 %x \n", -1);
+	ft_printf("1 %X \n", -1);
+	printf("2 %X \n", -1);
+	
+	ft_printf("1 %X \n", 16);
+	printf("2 %X \n", 16);
+
+
 
 	printf("\n");
 	// system("leaks a.out");
