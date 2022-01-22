@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 18:15:40 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/22 21:17:02 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 	i = 0;
 	print_len = 0;
 	if (format[result[ord].end] == 'c')
-		print_len = ft_putchar_printf(va_arg(arg_ptr, int), 1);
+		print_len = ft_putchar_printf(va_arg(arg_ptr, int));
 	else if (format[result[ord].end] == 's')
-		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), 1);
+		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
 	else if (format[result[ord].end] == 'p')
 		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long), 1);
 	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
-		print_len = ft_putdec_printf(va_arg(arg_ptr, int), 1);
+		print_len = ft_putdec_printf(va_arg(arg_ptr, int));
 	else if (format[result[ord].end] == 'u')
-		print_len = ft_putuni_printf(va_arg(arg_ptr, unsigned int), 1);
+		print_len = ft_putuni_printf(va_arg(arg_ptr, unsigned int));
 	else if (format[result[ord].end] == 'x' || format[result[ord].end] == 'X')
 		print_len = ft_puthex_printf(va_arg(arg_ptr, int), format[result[ord].end]);
 	else if (format[result[ord].end] == '%')
-		print_len = ft_putchar_printf('%', 1);
+		print_len = ft_putchar_printf('%');
 	return (print_len);
 }
 
@@ -57,7 +57,7 @@ static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 		}
 		else
 		{
-			print_len += ft_putchar_printf(format[i], 1);
+			print_len += ft_putchar_printf(format[i]);
 			++i;
 		}
 	}
@@ -96,7 +96,7 @@ int	ft_printf(const char *format, ...)
 	print_len = 0;
 	ord = ft_fill_result(format, result);
 	if (ord == 0)
-		print_len = ft_putstr_printf((char *)format, 1);
+		print_len = ft_putstr_printf((char *)format);
 	else
 	{
 		va_start(arg_ptr, format);

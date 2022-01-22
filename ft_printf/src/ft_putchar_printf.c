@@ -6,14 +6,14 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 15:03:54 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 19:21:48 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/01/22 21:05:17 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_printf(char c, int fd)
+int	ft_putchar_printf(char c)
 {
-	write (fd, &c, 1);
+	write (1, &c, 1);
 	return (1);
 }

@@ -6,43 +6,52 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 19:01:11 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/01/22 21:09:17 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_putptr(unsigned long ptr, int print_len, int fd)
+static void	ft_putptr(unsigned long long ptr)
 {
 	if (ptr >= 16)
 	{
-		ft_putptr(ptr / 16, ++print_len, fd);
-		ft_putptr(ptr % 16, ++print_len, fd);
+		ft_putptr(ptr / 16);
+		ft_putptr(ptr % 16);
 	}
 	else
 	{
 		if (ptr < 10)
-			print_len = ft_putchar_printf((ptr + '0'), fd);
+			ft_putchar_printf(ptr + '0');
 		else
-			print_len = ft_putchar_printf((ptr - 10 + 'a'), fd);
+			ft_putchar_printf(ptr - 10 + 'a');
 	}
-	return (print_len);
 }
 
-int	ft_putptr_printf(unsigned long ptr, int fd)
+static int	ft_count_len(unsigned long long ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr != 0)
+	{
+		ptr = ptr / 16;
+		++i;
+	}
+	return (i);
+}
+
+int	ft_putptr_printf(unsigned long long ptr, int fd)
 {
 	int		print_len;
 
 	write(fd, "0x", 2);
 	print_len = 2;
 	if (ptr == 0)
-	{
-		write (1, "0", 1);
-		++print_len;
-	}
+		print_len += ft_putchar_printf('0');
 	else
-		print_len += ft_putptr(ptr, print_len, fd);
-	// printf("\nPutptr = %i\n", print_len);
+		ft_putptr(ptr);
+	print_len += ft_count_len (ptr);
 	return (print_len);
 }

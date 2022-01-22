@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 18:19:29 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/22 21:50:04 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	main(void)
 	void *p;
 
 	p = malloc(7);
-    p = 0;
-	// ft_printf("Hello %c, %i, %d, %i, %u, %s, %%, %x, %X, %p\n", 'a', \
-	// 	-5, 2, 3, -1, "abc", -1, -200, ptr);
-	// printf("\nHello %c, %i, %d, %i, %u, %s, %%, %x, %X, %p\n", 'a', \
-	// 	-5, 2, 3, -1, "abc", -1, -200, ptr);
+    p = &c;
+	ft_printf("Hello %c, %i, %d, %i, %u, %s, %%, %x, %X, %p\n", 'a', \
+		-5, 2, 3, -1, "abc", -1, -200, ptr);
+	printf("\nHello %c, %i, %d, %i, %u, %s, %%, %x, %X, %p\n", 'a', \
+		-5, 2, 3, -1, "abc", -1, -200, ptr);
 	// // ft_printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	// printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	// ft_printf("%c %c %c\n", '0', 0, '1');
@@ -66,13 +66,17 @@ int	main(void)
 	// ft_printf(" %i \n", -2147483648);
 	// printf(" %i \n", -2147483648);
 
-	ft_printf("1 %X \n", -1);
-	printf("2 %X \n", -1);
+	// ft_printf("1 %X \n", -1);
+	// printf("2 %X \n", -1);
 	
-	ft_printf("1 %X \n", 16);
-	printf("2 %X \n", 16);
+	// ft_printf("1 %X \n", 16);
+	// printf("2 %X \n", 16);
 
+	// ft_printf(" %p ", p);
+	// printf(" %p ", p);
 
+	// ft_printf("1%5%\n");
+	// printf("2%5%\n");
 
 	printf("\n");
 	// system("leaks a.out");
