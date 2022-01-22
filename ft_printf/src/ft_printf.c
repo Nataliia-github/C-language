@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 21:17:02 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/22 22:37:17 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 	else if (format[result[ord].end] == 's')
 		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
 	else if (format[result[ord].end] == 'p')
-		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long), 1);
+		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
 	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
 		print_len = ft_putdec_printf(va_arg(arg_ptr, int));
 	else if (format[result[ord].end] == 'u')
