@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 22:37:33 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/23 12:33:08 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_print
 	int		end;
 	int		order;
 	int		lenght;
+	char	modifyer;
 }			t_print;
 
 int		ft_printf(const char *input_str, ...);

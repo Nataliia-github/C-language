@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:08:17 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 18:31:23 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/01/23 12:52:43 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,11 @@ static int	ft_flag_end(t_print *result, int i, int ord, const char	*format)
 	}
 	return (flag);
 }
-
-int	ft_fill_result(const char *format, t_print *result)
+static int	ft_analyse_format(const char *format, t_print *result)
 {
-	int		ord;
-	int		i;
-	int		flag;
+	int ord;
+	int	i;
+	int	flag;
 
 	ord = 0;
 	i = 0;
@@ -75,5 +74,36 @@ int	ft_fill_result(const char *format, t_print *result)
 		}
 		++i;
 	}
+	return (ord);	
+}
+
+int	ft_fill_result(const char *format, t_print *result)
+{
+	// int		ord;
+	// int		i;
+	// int		flag;
+	int	ord;
+
+	ord = 0;
+	ord = ft_analyse_format(format, result);
+	// ord = 0;
+	// i = 0;
+	// flag = 0;
+	// while (format[i] != '\0')
+	// {		
+	// 	if (format[i] == '%' && flag == 0)
+	// 		flag = ft_flag_start(result, i, flag, ord);
+	// 	else if (format[i] == '%' && flag == 1)
+	// 	{
+	// 		flag = ft_flag_percent(result, i, flag, ord);
+	// 		ord++;
+	// 	}
+	// 	else if (format[i] != '%' && flag == 1)
+	// 	{
+	// 		flag = ft_flag_end(result, i, ord, format);
+	// 		ord++;
+	// 	}
+	// 	++i;
+	// }
 	return (ord);
 }
