@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/23 12:39:24 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/23 20:40:01 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,17 @@ static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 	print_len = 0;
 	while (format[i] != '\0')
 	{
-		if (i == result[ord].start)
+		if (i == result[ord].start && result[ord].flag_mod == 0)
 		{
 			print_len += ft_print_kind_str(result, format, ord, arg_ptr);
 			i = result[ord].end + 1;
 			++ord;
 		}
+		// else if (i != result[ord].end && result[ord].flag_mod == 1)
+		// {
+		// 	++print_len;
+		// 	++i;
+		// }
 		else
 		{
 			print_len += ft_putchar_printf(format[i]);

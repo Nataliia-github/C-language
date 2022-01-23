@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 22:37:12 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/23 12:57:35 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ int	ft_putptr_printf(unsigned long long ptr)
 		print_len += ft_putchar_printf('0');
 	else
 		ft_putptr(ptr);
-	print_len += ft_count_len (ptr);
+	print_len += ft_count_len(ptr);
 	return (print_len);
 }
