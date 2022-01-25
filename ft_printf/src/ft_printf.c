@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/25 10:12:23 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 10:22:32 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	int	i;
 	int	print_len;
 
-	i = 0;
+	i = metainfo[ord].end;
 	print_len = 0;
-	if (format[metainfo[ord].end] == 'c')
+	if (format[i] == 'c')
 		print_len = ft_putchar_printf(va_arg(arg_ptr, int));
-	else if (format[metainfo[ord].end] == 's')
+	else if (format[i] == 's')
 		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
-	else if (format[metainfo[ord].end] == 'p')
+	else if (format[i] == 'p')
 		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
-	else if (format[metainfo[ord].end] == 'i' || format[metainfo[ord].end] == 'd')
+	else if (format[i] == 'i' || format[metainfo[ord].end] == 'd')
 		print_len = ft_putdec_printf(va_arg(arg_ptr, int));
-	else if (format[metainfo[ord].end] == 'u')
+	else if (format[i] == 'u')
 		print_len = ft_putuni_printf(va_arg(arg_ptr, unsigned int));
-	else if (format[metainfo[ord].end] == 'x' || format[metainfo[ord].end] == 'X')
+	else if (format[i] == 'x' || format[i] == 'X')
 		print_len = ft_puthex_printf(va_arg(arg_ptr, int), format[metainfo[ord].end]);
-	else if (format[metainfo[ord].end] == '%')
+	else if (format[i] == '%')
 		print_len = ft_putchar_printf('%');
 	return (print_len);
 }
