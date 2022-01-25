@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 18:12:43 by ncheban       #+#    #+#                 */
-/*   Updated: 2021/12/14 19:30:49 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/01/25 10:34:41 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ static	int	ft_count_len(unsigned int n)
 	int	i;
 
 	i = 0;
-	// if (n < 0)
-	// {
-	// 	n = n * (-1);
-	// 	++i;
-	// }
 	while (n != 0)
 	{
 		n /= 10;
@@ -41,11 +36,6 @@ static	void	ft_fill_reverse(char *res, unsigned int n)
 		n = n / 10;
 		++i;
 	}
-	// if (neg == -1)
-	// {
-	// 	res[i] = '-';
-	// 	i = i + 1;
-	// }
 	res[i] = '\0';
 }
 
