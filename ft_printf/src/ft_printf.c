@@ -6,14 +6,14 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/23 20:40:01 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 10:12:23 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_print_kind_str(t_print *result, const char *format, \
+static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	int ord, va_list arg_ptr)
 {
 	int	i;
@@ -21,24 +21,24 @@ static int	ft_print_kind_str(t_print *result, const char *format, \
 
 	i = 0;
 	print_len = 0;
-	if (format[result[ord].end] == 'c')
+	if (format[metainfo[ord].end] == 'c')
 		print_len = ft_putchar_printf(va_arg(arg_ptr, int));
-	else if (format[result[ord].end] == 's')
+	else if (format[metainfo[ord].end] == 's')
 		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
-	else if (format[result[ord].end] == 'p')
+	else if (format[metainfo[ord].end] == 'p')
 		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
-	else if (format[result[ord].end] == 'i' || format[result[ord].end] == 'd')
+	else if (format[metainfo[ord].end] == 'i' || format[metainfo[ord].end] == 'd')
 		print_len = ft_putdec_printf(va_arg(arg_ptr, int));
-	else if (format[result[ord].end] == 'u')
+	else if (format[metainfo[ord].end] == 'u')
 		print_len = ft_putuni_printf(va_arg(arg_ptr, unsigned int));
-	else if (format[result[ord].end] == 'x' || format[result[ord].end] == 'X')
-		print_len = ft_puthex_printf(va_arg(arg_ptr, int), format[result[ord].end]);
-	else if (format[result[ord].end] == '%')
+	else if (format[metainfo[ord].end] == 'x' || format[metainfo[ord].end] == 'X')
+		print_len = ft_puthex_printf(va_arg(arg_ptr, int), format[metainfo[ord].end]);
+	else if (format[metainfo[ord].end] == '%')
 		print_len = ft_putchar_printf('%');
 	return (print_len);
 }
 
-static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
+static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 {
 	int	i;
 	int	ord;
@@ -49,13 +49,13 @@ static int	ft_output(const char *format, t_print *result, va_list arg_ptr)
 	print_len = 0;
 	while (format[i] != '\0')
 	{
-		if (i == result[ord].start && result[ord].flag_mod == 0)
+		if (i == metainfo[ord].start)
 		{
-			print_len += ft_print_kind_str(result, format, ord, arg_ptr);
-			i = result[ord].end + 1;
+			print_len += ft_print_kind_str(metainfo, format, ord, arg_ptr);
+			i = metainfo[ord].end + 1;
 			++ord;
 		}
-		// else if (i != result[ord].end && result[ord].flag_mod == 1)
+		// else if (i != metainfo[ord].end && metainfo[ord].flag_mod == 1)
 		// {
 		// 	++print_len;
 		// 	++i;
@@ -85,21 +85,35 @@ static int	ft_count_perc(const char *format)
 	return (j);
 }
 
+static void	ft_free_metainfo(t_print *metainfo, int ord)
+{
+	int	i;
+
+	i = 0;
+	while (i < ord)
+	{
+		if (metainfo[i].modifier != NULL)
+			free(metainfo[i].modifier);
+		++i;
+	}
+	free (metainfo);
+}
+
 int	ft_printf(const char *format, ...)
 {
-	t_print	*result;
+	t_print	*metainfo;
 	int		ord;
 	va_list	arg_ptr;
 	int		print_len;
 
 	if (format == NULL)
 		return (0);
-	result = (t_print *)malloc(ft_count_perc(format) * sizeof(t_print));
-	if (result == NULL)
+	metainfo = (t_print *)malloc(ft_count_perc(format) * sizeof(t_print));
+	if (metainfo == NULL)
 		return (0);
 	ord = 0;
 	print_len = 0;
-	ord = ft_fill_result(format, result);
+	ord = ft_fill_metainfo(format, metainfo);
 	if (ord == 0)
 		print_len = ft_putstr_printf((char *)format);
 	else if (ord < 0)
@@ -107,9 +121,9 @@ int	ft_printf(const char *format, ...)
 	else
 	{
 		va_start(arg_ptr, format);
-		print_len = ft_output(format, result, arg_ptr);
+		print_len = ft_output(format, metainfo, arg_ptr);
 		va_end(arg_ptr);
 	}
-	free (result);
+	ft_free_metainfo(metainfo, ord);
 	return (print_len);
 }

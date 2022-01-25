@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2022/01/22 18:06:26 by nataliya      ########   odam.nl          #
+#    Updated: 2022/01/25 10:14:16 by nataliya      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INCLIB_DIR := libft/
 INCLIB_NAME := libft.a
 CC := gcc
 OBJFILES:= 	obj/ft_printf.o \
-			obj/ft_fill_result.o \
+			obj/ft_fill_metainfo.o \
 			obj/ft_putchar_printf.o \
 			obj/ft_putstr_printf.o \
 			obj/ft_putptr_printf.o \
