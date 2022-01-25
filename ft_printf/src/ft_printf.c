@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/25 18:12:40 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 20:08:46 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	i = metainfo[ord].end;
 	print_len = 0;
 	if (format[i] == 'c')
-		print_len = ft_putchar_printf(va_arg(arg_ptr, int));
+		print_len = ft_putchar_printf(va_arg(arg_ptr, int), metainfo, ord);
 	else if (format[i] == 's')
 		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
 	else if (format[i] == 'p')
@@ -34,26 +34,34 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	else if (format[i] == 'x' || format[i] == 'X')
 		print_len = ft_puthex_printf(va_arg(arg_ptr, int), format[i]);
 	else if (format[i] == '%')
-		print_len = ft_putchar_printf('%');
+		print_len = ft_putchar_printf('%', metainfo, ord);
 	return (print_len);
 }
 
 static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 {
 	int	i;
+	int	res_modif;
 	int	ord;
 	int	print_len;
 
 	i = 0;
 	ord = 0;
 	print_len = 0;
+	res_modif = 0;
 	while (format[i] != '\0')
 	{
 		if (i == metainfo[ord].start)
 		{
-			print_len += ft_print_kind_str(metainfo, format, ord, arg_ptr);
-			i = metainfo[ord].end + 1;
-			++ord;
+			res_modif = ft_print_kind_str(metainfo, format, ord, arg_ptr);
+			if (res_modif >= 0)
+			{
+				print_len += res_modif;
+				i = metainfo[ord].end + 1;
+				++ord;
+			}
+			else
+				return (-1);
 		}
 		// else if (i != metainfo[ord].end && metainfo[ord].flag_mod == 1)
 		// {
@@ -62,7 +70,8 @@ static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 		// }
 		else
 		{
-			print_len += ft_putchar_printf(format[i]);
+			ft_putchar_fd(format[i], 1);
+			++print_len;
 			++i;
 		}
 	}
@@ -85,19 +94,19 @@ static int	ft_count_perc(const char *format)
 	return (j);
 }
 
-static void	ft_free_metainfo(t_print *metainfo, int ord)
-{
-	int	i;
+// static void	ft_free_metainfo(t_print *metainfo, int ord)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < ord)
-	{
-		if (metainfo[i].modifier != NULL)
-			free(metainfo[i].modifier);
-		++i;
-	}
-	free (metainfo);
-}
+// 	i = 0;
+// 	while (i < ord)
+// 	{
+// 		if (metainfo[i].modifier != NULL)
+// 			free(metainfo[i].modifier);
+// 		++i;
+// 	}
+// 	free (metainfo);
+// }
 
 int	ft_printf(const char *format, ...)
 {
@@ -124,6 +133,7 @@ int	ft_printf(const char *format, ...)
 		print_len = ft_output(format, metainfo, arg_ptr);
 		va_end(arg_ptr);
 	}
-	ft_free_metainfo(metainfo, ord);
+	// ft_free_metainfo(metainfo, ord);
+	free(metainfo);
 	return (print_len);
 }

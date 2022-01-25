@@ -36,7 +36,7 @@ static int	ft_flag_end(t_print *metainfo, int i, int ord, const char	*format)
 
 	flag = 1;
 	print_symb = "cspdiuxX";
-	modif_symb = "-0.# +";
+	modif_symb = "-0123456789.# +";
 	if (ft_strchr(print_symb, format[i]) != 0)
 	{
 		metainfo[ord].end = i;
@@ -85,6 +85,8 @@ static void	ft_save_modifier(const char *format, t_print *metainfo, int i)
 
 	j = 0;
 	metainfo[i].modifier = (char *)malloc(((metainfo[i].lenght - 2) + 1) * sizeof(char));
+	if (metainfo[i].modifier == NULL)
+		return ;
 	while(j < metainfo[i].lenght - 2)
 	{
 		metainfo[i].modifier[j] = format[(metainfo[i].start + 1) + j];

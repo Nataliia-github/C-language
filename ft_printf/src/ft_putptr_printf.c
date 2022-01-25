@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/23 12:57:35 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 19:20:06 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	ft_putptr(unsigned long long ptr)
 	else
 	{
 		if (ptr < 10)
-			ft_putchar_printf(ptr + '0');
+			ft_putchar_fd((ptr + '0'), 1);
 		else
-			ft_putchar_printf(ptr - 10 + 'a');
+			ft_putchar_fd((ptr - 10 + 'a'), 1);
 	}
 }
 
@@ -49,7 +49,10 @@ int	ft_putptr_printf(unsigned long long ptr)
 	write(1, "0x", 2);
 	print_len = 2;
 	if (ptr == 0)
-		print_len += ft_putchar_printf('0');
+	{
+		ft_putchar_fd('0', 1);
+		++print_len;
+	}
 	else
 		ft_putptr(ptr);
 	print_len += ft_count_len(ptr);
