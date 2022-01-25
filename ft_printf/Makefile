@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2022/01/25 10:14:16 by nataliya      ########   odam.nl          #
+#    Updated: 2022/01/25 20:54:04 by nataliya      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ OBJFILES:= 	obj/ft_printf.o \
 			obj/ft_putdec_printf.o \
 			obj/ft_puthex_printf.o \
 			obj/ft_utoa.o \
-			obj/ft_putuni_printf.o 
+			obj/ft_putuni_printf.o \
+			obj/ft_putperc_printf.o
 
 
 TESTFILE:= src/test_ft_printf.c

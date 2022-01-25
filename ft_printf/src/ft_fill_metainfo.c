@@ -107,8 +107,6 @@ int	ft_fill_metainfo(const char *format, t_print *metainfo)
 	{
 		if (metainfo[i].lenght > 2)
 			ft_save_modifier(format, metainfo, i);
-		// printf("#%i end %i - start %i = lenght %i\n", i, metainfo[i].end, metainfo[i].start, metainfo[i].lenght);
-		// printf("%s\n", metainfo[i].modifier);
 		++i;
 	}
 	return (ord);

@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/25 18:59:01 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 22:52:19 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_print
 	int		index;
 	int		lenght;
 	char	*modifier;
+	int		zero_white;
 }			t_print;
 
 int		ft_printf(const char *input_str, ...);
@@ -45,5 +46,6 @@ int		ft_putdec_printf(int num);
 int		ft_puthex_printf(unsigned int hex, char upper);
 char	*ft_utoa(unsigned int n);
 int		ft_putuni_printf(unsigned int arg);
+int		ft_putperc_printf(char c, t_print *metainfo, int ord);
 
 #endif

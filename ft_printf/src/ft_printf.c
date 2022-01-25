@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/25 20:08:46 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 20:52:58 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	else if (format[i] == 'x' || format[i] == 'X')
 		print_len = ft_puthex_printf(va_arg(arg_ptr, int), format[i]);
 	else if (format[i] == '%')
-		print_len = ft_putchar_printf('%', metainfo, ord);
+		print_len = ft_putperc_printf('%', metainfo, ord);
 	return (print_len);
 }
 
