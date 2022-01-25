@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:08:17 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/23 20:58:12 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 08:46:30 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ static int	ft_analyse_format(const char *format, t_print *result)
 		else if (format[i] != '%' && flag == 1)
 		{
 			flag = ft_flag_end(result, i, ord, format);
-			ord++;
+			if (flag == 0)
+				ord++;
 		}
 		++i;
 	}

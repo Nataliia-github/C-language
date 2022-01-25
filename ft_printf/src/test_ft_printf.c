@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/23 21:00:58 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/25 08:47:09 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 
 	p = malloc(7);
     p = &c;
-	ft_printf("Hello, %c, %i, %d, %i, %u, %s, %%, %x, %X, %p\n", 'a', \
+	ft_printf("Hello, %000c, %i, %d, %i, %u, %s, %%, %x, %X, %0p\n", 'a', \
 		-5, 2, 3, -1, "abc", -1, -200, ptr);
 	// printf("\nHello %c, %i, %d, %i, %u, %s, %%, %x, %X, %p\n", 'a', \
 	// 	-5, 2, 3, -1, "abc", -1, -200, ptr);
