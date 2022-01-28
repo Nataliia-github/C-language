@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 11:48:35 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 21:16:32 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/26 17:13:49 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	ft_putuni_printf(unsigned int arg)
 	char	*str;
 
 	str = ft_utoa(arg);
-	print_len = ft_putstr_printf(str);
+	ft_putstr_fd(str, 1);
+	print_len = ft_strlen(str);
 	free(str);
 	return (print_len);
 }

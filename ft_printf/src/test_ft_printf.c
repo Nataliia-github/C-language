@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/25 22:40:35 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/28 18:31:47 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,31 @@ int	main(void)
 
 	p = malloc(7);
     p = &c;
-	ft_printf("Hello, %-c, %i, %d, %i, %u, %s, %07%, %x, %X, %p\n", 'a', \
-		-5, 2, 3, -1, "abc", -1, -200, ptr);
-	printf("\nHello, %-c, %i, %d, %i, %u, %s, %07%, %x, %X, %p\n", 'a', \
-		-5, 2, 3, -1, "abc", -1, -200, ptr);
+	// ft_printf("Hello, %-c, %i, %d, %i, %u, %-7s, %%, %x, %X, %p\n", 'a', \
+	// 	-5, 2, 3, -1, "abc", -1, -200, ptr);
+	// printf("\nHello, %-c, %i, %d, %i, %u, %-7s, %%, %x, %X, %p\n", 'a', \
+	// 	-5, 2, 3, -1, "abc", -1, -200, ptr);
 
+	// ft_printf("hello, %s.\n", "gavin");
+	// printf("hello, %s.", "gavin");
+
+	// ft_printf("1 '%.3s'\n", "hello");
+	// printf("2 '%.3s'", "hello"); /* no before "-" '0# +' modificator '-(alignt)digits(space).digits(minus_len if less then len)' */
+
+	// ft_printf("'%-.7s'\n", "world");
+	// printf("'%-.7s'", "world");
+
+	// ft_printf("'%s'\n", "testing testing");
+	// printf("'%s'\n", "testing testing");
+
+	// ft_printf("'%7.5s'\n", "bombastic");
+	// printf("'%7.5s'", "bombastic");
+
+	ft_printf("hello, %s.\n", "gavin");
+	printf("hello, %s.", "gavin");
+
+	// ft_printf("1 '%s'\n", NULL);
+	// printf("2 '%s'", NULL); 
 	// // ft_printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	// printf("%1c%2c%3c%4c\n", 'a', 'b', 'c', 'd');
 	// ft_printf("%c %c %c\n", '0', 0, '1');

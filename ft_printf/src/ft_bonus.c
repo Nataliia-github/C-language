@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.c                                        :+:    :+:            */
+/*   ft_bonus.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
+/*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/28 21:27:24 by nataliya      ########   odam.nl         */
+/*   Created: 2022/01/28 21:08:15 by nataliya      #+#    #+#                 */
+/*   Updated: 2022/01/28 21:08:18 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_print_kind_str(t_print *metainfo, const char *format, \
+static int	ft_print_simple(t_print *metainfo, const char *format, \
 	int ord, va_list arg_ptr)
 {
 	int	i;
@@ -22,9 +21,9 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	i = metainfo[ord].end;
 	print_len = 0;
 	if (format[i] == 'c')
-		print_len = ft_putchar_printf(va_arg(arg_ptr, int));
+		print_len = ft_putchar_printf(va_arg(arg_ptr, int), metainfo, ord);
 	else if (format[i] == 's')
-		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
+		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), metainfo, ord);
 	else if (format[i] == 'p')
 		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
 	else if (format[i] == 'i' || format[i] == 'd')
@@ -41,37 +40,30 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 {
 	int	i;
-	int	res_modif;
+	// int	res_modif;
 	int	ord;
 	int	print_len;
 
 	i = 0;
 	ord = 0;
 	print_len = 0;
-	res_modif = 0;
+	// res_modif = 0;
 	while (format[i] != '\0')
 	{
 		if (i == metainfo[ord].start)
 		{
-			res_modif = ft_print_kind_str(metainfo, format, ord, arg_ptr);
-			if (res_modif >= 0)
+			print_len = ft_print_simple(metainfo, format, ord, arg_ptr);
+			if (print_len >= 0)
 			{
-				print_len += res_modif;
 				i = metainfo[ord].end + 1;
 				++ord;
 			}
 			else
 				return (-1);
 		}
-		// else if (i != metainfo[ord].end && metainfo[ord].flag_mod == 1)
-		// {
-		// 	++print_len;
-		// 	++i;
-		// }
 		else
 		{
-			ft_putchar_fd(format[i], 1);
-			++print_len;
+			print_len += write(1, &format[i], 1);
 			++i;
 		}
 	}
@@ -124,7 +116,7 @@ int	ft_printf(const char *format, ...)
 	print_len = 0;
 	ord = ft_fill_metainfo(format, metainfo);
 	if (ord == 0)
-		print_len = ft_putstr_printf((char *)format);
+		print_len += write(1, (char *)format, 1);
 	else if (ord < 0)
 		return(-1);
 	else

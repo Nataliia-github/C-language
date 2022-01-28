@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/09 16:38:13 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 22:39:23 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/26 17:12:05 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	ft_putdec_printf(int num)
 	char	*str;
 
 	str = ft_itoa(num);
-	print_len = ft_putstr_printf(str);
+	ft_putstr_fd(str, 1);
+	print_len = ft_strlen(str);
 	free(str);
 	return (print_len);
 }
