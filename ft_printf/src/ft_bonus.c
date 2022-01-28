@@ -6,11 +6,12 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/28 21:08:15 by nataliya      #+#    #+#                 */
-/*   Updated: 2022/01/28 21:08:18 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/28 22:24:19 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_bonus.h"
 
 static int	ft_print_simple(t_print *metainfo, const char *format, \
 	int ord, va_list arg_ptr)
@@ -21,9 +22,9 @@ static int	ft_print_simple(t_print *metainfo, const char *format, \
 	i = metainfo[ord].end;
 	print_len = 0;
 	if (format[i] == 'c')
-		print_len = ft_putchar_printf(va_arg(arg_ptr, int), metainfo, ord);
+		print_len = ft_putchar_bonus(va_arg(arg_ptr, int), metainfo, ord);
 	else if (format[i] == 's')
-		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), metainfo, ord);
+		print_len = ft_putstr_bonus(va_arg(arg_ptr, char *), metainfo, ord);
 	else if (format[i] == 'p')
 		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
 	else if (format[i] == 'i' || format[i] == 'd')

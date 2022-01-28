@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "../libft/libft.h"
 #include <stdlib.h>
 
 static int	ft_flag_start(t_print *metainfo, int i, int ord)
