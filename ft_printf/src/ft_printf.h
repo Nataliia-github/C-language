@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/28 21:27:44 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 15:17:33 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_print
 
 int		ft_printf(const char *input_str, ...);
 int		ft_fill_metainfo(const char *format, t_print *result);
-int		ft_putchar_printf(char c);
-int		ft_putstr_printf(char *s);
+int		ft_putchar_printf(char c, t_print *metainfo, int ord);
+int		ft_putstr_printf(char *s, t_print *metainfo, int ord);
 int		ft_putptr_printf(unsigned long long ptr);
 int		ft_putdec_printf(int num);
 int		ft_puthex_printf(unsigned int hex, char upper);

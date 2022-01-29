@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 16:31:11 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/28 21:26:23 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 15:40:20 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,65 +34,65 @@ static	int	ft_skip_trash(const char *mod, int i)
 	return (0);
 }
 
-static int ft_meta_minus(const char *mod, t_print *metainfo, int ord, int i)
-{
-	while (mod[i] == '-' && mod[i] != '\0')
-	{
-		metainfo[ord].minus = 1;
-		++i;
-	}
-	return (i);
-}
+// static int ft_meta_minus(const char *mod, t_print *metainfo, int ord, int i)
+// {
+// 	while (mod[i] == '-' && mod[i] != '\0')
+// 	{
+// 		metainfo[ord].minus = 1;
+// 		++i;
+// 	}
+// 	return (i);
+// }
 
-static int ft_meta_space(const char *mod, t_print *metainfo, int ord, int i)
-{
-	if (mod[i] == '0')
-		metainfo[ord].zero_white = '0';
-	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
-	{
-		metainfo[ord].space = metainfo[ord].space * 10 + (mod[i] - '0');
-		++i;
-	}
-	return (i);
-}
+// static int ft_meta_space(const char *mod, t_print *metainfo, int ord, int i)
+// {
+// 	if (mod[i] == '0')
+// 		metainfo[ord].zero_white = '0';
+// 	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
+// 	{
+// 		metainfo[ord].space = metainfo[ord].space * 10 + (mod[i] - '0');
+// 		++i;
+// 	}
+// 	return (i);
+// }
 
-static int ft_meta_dot(t_print *metainfo, int ord, int i)
-{
-	metainfo[ord].dot = 1;
-	++i;
-	return (i);
-}
+// static int ft_meta_dot(t_print *metainfo, int ord, int i)
+// {
+// 	metainfo[ord].dot = 1;
+// 	++i;
+// 	return (i);
+// }
 
-static int ft_meta_cut(const char *mod, t_print *metainfo, int ord, int i)
-{
-	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
-	{
-		metainfo[ord].cut_str = metainfo[ord].cut_str * 10 + (mod[i] - '0');
-		++i;
-	}
-	return (i);
-}
+// static int ft_meta_cut(const char *mod, t_print *metainfo, int ord, int i)
+// {
+// 	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
+// 	{
+// 		metainfo[ord].cut_str = metainfo[ord].cut_str * 10 + (mod[i] - '0');
+// 		++i;
+// 	}
+// 	return (i);
+// }
 
-static int	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
-{
-	int	i;
+// static int	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
+// {
+// 	int	i;
 
-	i = 0;
-	metainfo[ord].minus = 0;
-	metainfo[ord].space = 0;
-	metainfo[ord].cut_str = 0;
-	if (mod[i] == '-')
-		i = ft_meta_minus(mod, metainfo, ord, i);
-	if (ft_isdigit(mod[i]) != 0)
-		i = ft_meta_space(mod, metainfo, ord, i);
-	if (mod[i] == '.')
-		i = ft_meta_dot(metainfo, ord, i);	
-	if (ft_isdigit(mod[i]) != 0)
-		i = ft_meta_cut(mod, metainfo, ord, i);
-	if (i != (int)ft_strlen(mod))
-		metainfo[ord].space = -1;
-	return (metainfo[ord].space);
-}
+// 	i = 0;
+// 	metainfo[ord].minus = 0;
+// 	metainfo[ord].space = 0;
+// 	metainfo[ord].cut_str = 0;
+// 	if (mod[i] == '-')
+// 		i = ft_meta_minus(mod, metainfo, ord, i);
+// 	if (ft_isdigit(mod[i]) != 0)
+// 		i = ft_meta_space(mod, metainfo, ord, i);
+// 	if (mod[i] == '.')
+// 		i = ft_meta_dot(metainfo, ord, i);	
+// 	if (ft_isdigit(mod[i]) != 0)
+// 		i = ft_meta_cut(mod, metainfo, ord, i);
+// 	if (i != (int)ft_strlen(mod))
+// 		metainfo[ord].space = -1;
+// 	return (metainfo[ord].space);
+// }
 
 static int	ft_print_space(char	*s, t_print *metainfo, int ord)
 {
@@ -186,7 +186,7 @@ static int	ft_apply_modifier(char *s, t_print *metainfo, int ord)
 	metainfo[ord].space = 1;
 	if (ft_skip_trash(metainfo[ord].modifier, i) != 0)
 		return (-1);
-	print_space = ft_check_sequence(metainfo[ord].modifier, metainfo, ord);
+	print_space = metainfo[ord].space; /*ft_check_sequence(metainfo[ord].modifier, metainfo, ord);*/
 	if (print_space != 0 && metainfo[ord].zero_white == '0')
 		return (-1);
 	if (print_space < 0)
@@ -196,7 +196,7 @@ static int	ft_apply_modifier(char *s, t_print *metainfo, int ord)
 	return (print_len);
 }
 
-int	ft_putstr_bonus(char *s, t_print *metainfo, int ord)
+int	ft_putstr_printf(char *s, t_print *metainfo, int ord)
 {
 	int	print_len;
 

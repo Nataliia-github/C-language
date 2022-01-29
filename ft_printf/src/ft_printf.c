@@ -6,14 +6,14 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/28 21:27:24 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 16:18:32 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_print_kind_str(t_print *metainfo, const char *format, \
+static int	ft_print_type(t_print *metainfo, const char *format, \
 	int ord, va_list arg_ptr)
 {
 	int	i;
@@ -22,9 +22,9 @@ static int	ft_print_kind_str(t_print *metainfo, const char *format, \
 	i = metainfo[ord].end;
 	print_len = 0;
 	if (format[i] == 'c')
-		print_len = ft_putchar_printf(va_arg(arg_ptr, int));
+		print_len = ft_putchar_printf(va_arg(arg_ptr, int), metainfo, ord);
 	else if (format[i] == 's')
-		print_len = ft_putstr_printf(va_arg(arg_ptr, char *));
+		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), metainfo, ord);
 	else if (format[i] == 'p')
 		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
 	else if (format[i] == 'i' || format[i] == 'd')
@@ -53,7 +53,7 @@ static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 	{
 		if (i == metainfo[ord].start)
 		{
-			res_modif = ft_print_kind_str(metainfo, format, ord, arg_ptr);
+			res_modif = ft_print_type(metainfo, format, ord, arg_ptr);
 			if (res_modif >= 0)
 			{
 				print_len += res_modif;
@@ -63,15 +63,9 @@ static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 			else
 				return (-1);
 		}
-		// else if (i != metainfo[ord].end && metainfo[ord].flag_mod == 1)
-		// {
-		// 	++print_len;
-		// 	++i;
-		// }
 		else
 		{
-			ft_putchar_fd(format[i], 1);
-			++print_len;
+			print_len += write(1, &format[i], 1);
 			++i;
 		}
 	}
@@ -102,7 +96,9 @@ static int	ft_count_perc(const char *format)
 // 	while (i < ord)
 // 	{
 // 		if (metainfo[i].modifier != NULL)
+// 		{
 // 			free(metainfo[i].modifier);
+// 		}
 // 		++i;
 // 	}
 // 	free (metainfo);
@@ -115,16 +111,16 @@ int	ft_printf(const char *format, ...)
 	va_list	arg_ptr;
 	int		print_len;
 
+	ord = 0;
+	print_len = 0;
 	if (format == NULL)
 		return (0);
 	metainfo = (t_print *)malloc(ft_count_perc(format) * sizeof(t_print));
 	if (metainfo == NULL)
 		return (0);
-	ord = 0;
-	print_len = 0;
 	ord = ft_fill_metainfo(format, metainfo);
 	if (ord == 0)
-		print_len = ft_putstr_printf((char *)format);
+		print_len = ft_putstr_printf((char *)format, metainfo, ord);
 	else if (ord < 0)
 		return(-1);
 	else

@@ -6,20 +6,16 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2022/01/28 23:21:30 by nataliya      ########   odam.nl          #
+#    Updated: 2022/01/29 15:15:22 by nataliya      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= libftprintf.a
 HEADERFILES:= 	src/ft_printf.h \
-				libft/libft.h \
-				src/ft_bonus.h
+				libft/libft.h 
 
 INCLIB_DIR :=	libft/
 INCLIB_NAME := libft.a
-
-BONUSLIB_NAME := ft_bonus.a
-BONUSLIB_DIR := src/
 
 CC := gcc
 OBJFILES:= 	obj/ft_printf.o \
@@ -33,10 +29,6 @@ OBJFILES:= 	obj/ft_printf.o \
 			obj/ft_putuni_printf.o \
 			obj/ft_putperc_printf.o
 
-BONUS_OBJF:=	obj/ft_bonus.o \
-				obj/ft_fill_meta_bonus.o \
-				obj/ft_putchar_bonus.o \
-				obj/ft_putstr_bonus.o \
 
 TESTFILE:= src/test_ft_printf.c
 
@@ -70,21 +62,15 @@ fclean: clean
 re: fclean all
 
 .PHONY: bonus
-bonus: $(BONUSLIB_NAME)
+bonus: all
 
-$(BONUSLIB_NAME): $(BONUS_OBJF)
-	ar rcs $(BONUSLIB_NAME) $(BONUS_OBJF)
+# $(BONUSLIB_NAME): all
 
 .PHONY: cleanbonus
-cleanbonus:
-	rm -rf $(BONUS_OBJF) obj/
+cleanbonus: clean
 
 .PHONY: fcleanbonus
 fcleanbonus: fclean
-	rm -rf ${BONUSLIB_NAME}
-
-.PHONY: rebonus
-rebonus: fclean all bonus
 
 
 # .PHONY: leaks
@@ -98,10 +84,6 @@ test: re
 	$(CC) $(CFLAGS) $(TESTFILE) $(NAME) $(INCLIB_DIR)$(INCLIB_NAME)
 	./a.out
 
-.PHONY: testbonus
-testbonus: rebonus
-	$(CC) $(CFLAGS) $(TESTFILE) $(NAME) $(INCLIB_DIR)$(INCLIB_NAME) $(BONUSLIB_NAME)
-	./a.out
 
 .PHONY: fcleantest
 fcleantest: fclean

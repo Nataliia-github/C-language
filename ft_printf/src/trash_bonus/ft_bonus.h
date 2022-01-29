@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/28 20:18:34 by nataliya      #+#    #+#                 */
-/*   Updated: 2022/01/28 22:19:23 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 09:10:10 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@
 // 	int		dot;
 // }			t_print;
 
-int		ft_bonus(const char *input_str, ...);
-int		ft_fill_meta_bonus(const char *format, t_print *metainfo);
+int		ft_bonus (t_print *metainfo, const char *format, \
+	int ord, va_list arg_ptr);
+int		ft_fill_meta_bonus(const char *mod, t_print *metainfo, int ord);
 int		ft_putchar_bonus(char c, t_print *metainfo, int ord);
 int		ft_putstr_bonus(char *s, t_print *metainfo, int ord);
 

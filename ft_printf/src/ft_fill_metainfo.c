@@ -94,6 +94,67 @@ static void	ft_save_modifier(const char *format, t_print *metainfo, int i)
 	metainfo[i].modifier[j] = '\0';
 }
 
+static int ft_meta_minus(const char *mod, t_print *metainfo, int ord, int i)
+{
+	while (mod[i] == '-' && mod[i] != '\0')
+	{
+		metainfo[ord].minus = 1;
+		++i;
+	}
+	return (i);
+}
+
+static int ft_meta_space(const char *mod, t_print *metainfo, int ord, int i)
+{
+	if (mod[i] == '0')
+		metainfo[ord].zero_white = '0';
+	else 
+		metainfo[ord].zero_white = ' ';
+	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
+	{
+		metainfo[ord].space = metainfo[ord].space * 10 + (mod[i] - '0');
+		++i;
+	}
+	return (i);
+}
+
+static int ft_meta_dot(t_print *metainfo, int ord, int i)
+{
+	metainfo[ord].dot = 1;
+	++i;
+	return (i);
+}
+
+static int ft_meta_cut(const char *mod, t_print *metainfo, int ord, int i)
+{
+	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
+	{
+		metainfo[ord].cut_str = metainfo[ord].cut_str * 10 + (mod[i] - '0');
+		++i;
+	}
+	return (i);
+}
+
+static void	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
+{
+	int	i;
+
+	i = 0;
+	metainfo[ord].minus = 0;
+	metainfo[ord].space = 0;
+	metainfo[ord].cut_str = 0;
+	if (mod[i] == '-')
+		i = ft_meta_minus(mod, metainfo, ord, i);
+	if (ft_isdigit(mod[i]) != 0)
+		i = ft_meta_space(mod, metainfo, ord, i);
+	if (mod[i] == '.')
+		i = ft_meta_dot(metainfo, ord, i);	
+	if (ft_isdigit(mod[i]) != 0)
+		i = ft_meta_cut(mod, metainfo, ord, i);
+	if (i != (int)ft_strlen(mod))
+		metainfo[ord].space = -1;
+}
+
 int	ft_fill_metainfo(const char *format, t_print *metainfo)
 {
 	int		i;
@@ -105,7 +166,12 @@ int	ft_fill_metainfo(const char *format, t_print *metainfo)
 	while (i < ord)
 	{
 		if (metainfo[i].lenght > 2)
+		{
 			ft_save_modifier(format, metainfo, i);
+			// metainfo[ord].zero_white = ' ';
+			// metainfo[ord].space = 1;
+			ft_check_sequence(metainfo[i].modifier, metainfo, i);
+		}
 		++i;
 	}
 	return (ord);

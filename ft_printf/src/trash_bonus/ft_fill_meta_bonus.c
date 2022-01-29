@@ -6,7 +6,7 @@
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/28 22:13:25 by nataliya      #+#    #+#                 */
-/*   Updated: 2022/01/28 22:34:11 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 08:19:39 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int ft_meta_cut(const char *mod, t_print *metainfo, int ord, int i)
 	return (i);
 }
 
-int	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
+int	ft_fill_meta_bonus(const char *mod, t_print *metainfo, int ord)
 {
 	int	i;
 

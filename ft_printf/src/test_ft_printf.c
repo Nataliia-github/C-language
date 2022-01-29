@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/28 18:31:47 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 17:33:36 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ int	main(void)
 	// ft_printf("'%7.5s'\n", "bombastic");
 	// printf("'%7.5s'", "bombastic");
 
-	ft_printf("hello, %s.\n", "gavin");
-	printf("hello, %s.", "gavin");
+	// ft_printf("'hello, world'%----.c!'\n", 'Y');
+	// printf("'hello, world'%----c!'", 'Y');
+
+	ft_printf("1'%-05%'\n");
+	printf("2'%-05%'");
 
 	// ft_printf("1 '%s'\n", NULL);
 	// printf("2 '%s'", NULL); 
