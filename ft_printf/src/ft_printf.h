@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:05:06 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/29 15:17:33 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 22:19:48 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
 # include "../libft/libft.h"
 
 // # ifndef BUFFER_SIZE
@@ -34,6 +35,7 @@ typedef struct s_print
 	int		index;
 	int		lenght;
 	char	*modifier;
+	int		hidden;
 	char	zero_white;
 	int		space;
 	int		cut_str;
@@ -51,5 +53,6 @@ int		ft_puthex_printf(unsigned int hex, char upper);
 char	*ft_utoa(unsigned int n);
 int		ft_putuni_printf(unsigned int arg);
 int		ft_putperc_printf(char c, t_print *metainfo, int ord);
+void 	ft_meta_hidden(const char *s, t_print *metainfo, int ord);
 
 #endif

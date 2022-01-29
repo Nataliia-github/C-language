@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/27 12:55:28 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/29 17:33:36 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/29 22:59:13 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,23 @@ int	main(void)
 	// ft_printf("'hello, world'%----.c!'\n", 'Y');
 	// printf("'hello, world'%----c!'", 'Y');
 
-	ft_printf("1'%-05%'\n");
-	printf("2'%-05%'");
+	// ft_printf("1'%-05%'\n");
+	// printf("2'%-05%'");
+
+	ft_printf("hello, '%s'.\n", NULL);
+	// ft_printf("%3.s\n", s_hidden);
+	// ft_printf("%10.s\n", s_hidden);
+
+	ft_printf("1'%3.s'\n", NULL);
+	// printf("'%3.s'\n", NULL);
+
+	// ft_printf("2'%10.s'\n", NULL);
+	// printf("'%10.s'\n", NULL);
+
+	// ft_printf("3'%-1.s'\n", "\0");
+
+	// printf("4'%-1.s'", "\0");
+	// printf("hello, %s.", NULL);
 
 	// ft_printf("1 '%s'\n", NULL);
 	// printf("2 '%s'", NULL); 

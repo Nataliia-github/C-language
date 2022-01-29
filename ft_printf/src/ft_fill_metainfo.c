@@ -143,6 +143,7 @@ static void	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
 	metainfo[ord].minus = 0;
 	metainfo[ord].space = 0;
 	metainfo[ord].cut_str = 0;
+	// ft_meta_hidden(mod, metainfo, ord, i);
 	if (mod[i] == '-')
 		i = ft_meta_minus(mod, metainfo, ord, i);
 	if (ft_isdigit(mod[i]) != 0)
@@ -153,6 +154,31 @@ static void	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
 		i = ft_meta_cut(mod, metainfo, ord, i);
 	if (i != (int)ft_strlen(mod))
 		metainfo[ord].space = -1;
+}
+
+void ft_meta_hidden(const char *s, t_print *metainfo, int ord)
+{
+	int	i;
+
+	i = 0;
+	metainfo[ord].hidden = 0;
+	while (s[i] == '\0' || s[i] == '\t' || s[i] == '\r'
+		|| s[i] == '\n' || s[i] == '\f' || s[i] == '\v')
+	{
+		metainfo[ord].hidden = 1;
+		// printf("metainfo[ord].hidden = %i\n", metainfo[ord].hidden);
+		// printf("metainfo[ord].hidden = %i\n", metainfo[ord].hidden);
+		++i;
+	}
+
+	// printf("strlen = %i && i = %i\n", (int)ft_strlen(s), i);
+	// if (i == (int)ft_strlen(s))
+	// {
+	// 	metainfo[ord].hidden = 1;
+	// 	printf("metainfo[ord].hidden = %i\n", metainfo[ord].hidden);
+	// }
+	// printf("metainfo[ord].hidden = %i\n", metainfo[ord].hidden);
+	// return (i);
 }
 
 int	ft_fill_metainfo(const char *format, t_print *metainfo)
@@ -167,6 +193,9 @@ int	ft_fill_metainfo(const char *format, t_print *metainfo)
 	{
 		if (metainfo[i].lenght > 2)
 		{
+			// metainfo[i].modifier = ft_substr(format, metainfo[i].start, metainfo[i].lenght);
+			// if (metainfo[i].modifier == NULL)
+			// 	return (-1);
 			ft_save_modifier(format, metainfo, i);
 			// metainfo[ord].zero_white = ' ';
 			// metainfo[ord].space = 1;
