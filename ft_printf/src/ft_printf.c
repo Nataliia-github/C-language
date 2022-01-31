@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/21 12:00:07 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/29 22:45:43 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/31 17:18:54 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_print_type(t_print *metainfo, const char *format, \
 	else if (format[i] == 's')
 		print_len = ft_putstr_printf(va_arg(arg_ptr, char *), metainfo, ord);
 	else if (format[i] == 'p')
-		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long));
+		print_len = ft_putptr_printf(va_arg(arg_ptr, unsigned long long), metainfo, ord);
 	else if (format[i] == 'i' || format[i] == 'd')
 		print_len = ft_putdec_printf(va_arg(arg_ptr, int));
 	else if (format[i] == 'u')
@@ -41,33 +41,25 @@ static int	ft_print_type(t_print *metainfo, const char *format, \
 static int	ft_output(const char *format, t_print *metainfo, va_list arg_ptr)
 {
 	int	i;
-	int	res_modif;
 	int	ord;
 	int	print_len;
 
 	i = 0;
 	ord = 0;
 	print_len = 0;
-	res_modif = 0;
 	while (format[i] != '\0')
 	{
 		if (i == metainfo[ord].start)
 		{
-			res_modif = ft_print_type(metainfo, format, ord, arg_ptr);
-			if (res_modif >= 0)
-			{
-				print_len += res_modif;
-				i = metainfo[ord].end + 1;
-				++ord;
-			}
-			else
+			print_len += ft_print_type(metainfo, format, ord, arg_ptr);
+			if (print_len < 0)
 				return (-1);
+			i = metainfo[ord].end;
+			++ord;
 		}
 		else
-		{
 			print_len += write(1, &format[i], 1);
-			++i;
-		}
+		++i;
 	}
 	return (print_len);
 }
@@ -120,7 +112,7 @@ int	ft_printf(const char *format, ...)
 		return (0);
 	ord = ft_fill_metainfo(format, metainfo);
 	if (ord == 0)
-		print_len = ft_putstr_printf((char *)format, metainfo, ord);
+		print_len = write(1, (char *)format, (int)ft_strlen((char *)format));
 	else if (ord < 0)
 		return(-1);
 	else

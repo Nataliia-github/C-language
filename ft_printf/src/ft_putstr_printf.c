@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 16:31:11 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/29 23:03:15 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/01/31 17:03:33 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,10 @@ static int ft_alight_symb(char	*s, t_print *metainfo, int ord)
 	i = 0;
 	str_len = (int)ft_strlen(s);
 	print_space = ft_print_space(s, metainfo, ord);
-	// printf("strlen = %i, space = %i\n", str_len, print_space);
 	if ((metainfo[ord].cut_str < (int)ft_strlen(s)) && (metainfo[ord].cut_str != 0))
-		str_len = metainfo[ord].cut_str;
+		str_len = metainfo[ord].cut_str;		
 	if (metainfo[ord].dot == 1 && metainfo[ord].cut_str == 0)
-		return (0);
-	// printf("strlen = %i, space = %i\n", str_len, print_space);
+			return (0);
 	if (metainfo[ord].minus == 0)
 		print_len = ft_alignt_right(s, metainfo[ord].zero_white, str_len, print_space);
 	else if (metainfo[ord].minus == 1)
@@ -144,8 +142,11 @@ int	ft_putstr_printf(char *s, t_print *metainfo, int ord)
 	int	print_len;
 
 	print_len = 0;
-	if (s == NULL /*&& metainfo[ord].space == 0*/)
+	// ft_meta_hidden(s, metainfo, ord);
+	if (s == NULL)
 		s = "(null)";
+	// else if (s == NULL && metainfo[ord].dot == 1)
+	// 	s = "+++";
 	// else if (s == NULL && metainfo[ord].space != 0)
 	// {
 	// 	s = " ";
@@ -155,8 +156,7 @@ int	ft_putstr_printf(char *s, t_print *metainfo, int ord)
 	// 	s = " ";
 	// printf("#%i - metainfo[ord].space %i\n", ord, metainfo[ord].space);
 	// printf("#%i - ft_strlen(s) %zu\n", ord, ft_strlen(s));
-	ft_meta_hidden(s, metainfo, ord);
-	if (metainfo[ord].modifier == NULL)
+	if (metainfo[ord].modifier == NULL && s != NULL)
 	{
 		ft_putstr_fd(s, 1);
 		print_len = ft_strlen(s);
