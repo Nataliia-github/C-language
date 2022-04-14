@@ -6,14 +6,22 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
+<<<<<<< HEAD
 /*   Updated: 2022/04/14 13:23:23 by ncheban       ########   odam.nl         */
+=======
+<<<<<<< HEAD
+/*   Updated: 2022/04/14 13:23:23 by ncheban       ########   odam.nl         */
+=======
+/*   Updated: 2022/01/22 22:28:54 by nataliya      ########   odam.nl         */
+>>>>>>> 876bcb23532b82eaf79b38c4384ea4e889043206
+>>>>>>> f214191e45585b7a1441a7ae5506bde7f3b3c042
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-static int	ft_count_size(unsigned long long hex)
+static int	ft_count_len(unsigned long long hex)
 {
 	int	i;
 
@@ -59,7 +67,7 @@ int	ft_puthex_printf(unsigned int hex, char upper)
 	}
 	else
 	{
-		print_len = ft_count_size(hex);
+		print_len = ft_count_len(hex);
 		ft_puthex(hex, upper);
 	}
 	return (print_len);

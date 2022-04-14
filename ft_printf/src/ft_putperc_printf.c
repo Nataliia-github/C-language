@@ -1,15 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putchar_printf.c                                :+:    :+:            */
+/*   ft_putperc_printf.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nataliya <nataliya@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/01/28 20:26:49 by nataliya      #+#    #+#                 */
-/*   Updated: 2022/01/29 17:28:38 by nataliya      ########   odam.nl         */
+/*   Created: 2022/01/25 20:36:02 by nataliya      #+#    #+#                 */
+/*   Updated: 2022/01/29 17:35:37 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*	1. Skip trash "-0 #+."				*/
+/*	2. Find '-'. Align					*/
+/*	3. Zero_white for print				*/
 
 #include "ft_printf.h"
 
@@ -17,7 +20,7 @@ static	int	ft_ignore_trash(const char *str, int i)
 {
 	char	*skip_symb;
 
-	skip_symb = "-0 #+.";
+	skip_symb = "- #+.";
 	while (i < str[i] != '\0' && (ft_strchr(skip_symb, str[i]) != 0))
 	{
 		++i;
@@ -48,6 +51,7 @@ static int	ft_alignt_left(char c, char w, int str_len, int print_space)
 	int	print_len;
 	
 	print_len = 0;
+	w = ' ';
 	while (print_len < str_len)
 	{
 		ft_putchar_fd(c, 1);
@@ -55,7 +59,7 @@ static int	ft_alignt_left(char c, char w, int str_len, int print_space)
 	}
 	while (print_len < print_space)
 	{
-		ft_putchar_fd(w, 1);
+		ft_putchar_fd(' ', 1);
 		++print_len;
 	}
 	return(print_len);	
@@ -91,8 +95,8 @@ static int	ft_apply_modifier(char c, t_print *metainfo, int ord)
 	// metainfo[ord].zero_white = ' ';
 	i = ft_ignore_trash(metainfo[ord].modifier, i);
 	print_space = metainfo[ord].space;
-	if (print_space != 0 && metainfo[ord].zero_white == '0')
-		return (-1);
+	// if (print_space != 0 && metainfo[ord].zero_white == '0')
+	// 	return (-1);
 	if (print_space < 0)
 		return (-1);
 	else
@@ -100,15 +104,20 @@ static int	ft_apply_modifier(char c, t_print *metainfo, int ord)
 	return (print_len);
 }
 
-int	ft_putchar_printf(char c, t_print *metainfo, int ord)
+int	ft_putperc_printf(char c, t_print *metainfo, int ord)
 {
 	int	print_len;
 
 	print_len = 0;
 	if (metainfo[ord].modifier == NULL)
-		print_len +=write(1, &c, 1);
+	{
+		ft_putchar_fd(c, 1);
+		++print_len;
+	}
 	else if((int)ft_strlen(metainfo[ord].modifier) == 1 && metainfo[ord].modifier[0] == '.')
+	{
 		print_len += write(1, &c, 1);
+	}
 	else
 		print_len = ft_apply_modifier(c, metainfo, ord);
 	return (print_len);
