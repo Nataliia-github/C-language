@@ -6,7 +6,7 @@
 #    By: ncheban <ncheban@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/14 14:39:48 by ncheban       #+#    #+#                  #
-#    Updated: 2022/01/22 18:06:26 by nataliya      ########   odam.nl          #
+#    Updated: 2022/04/14 13:26:05 by ncheban       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,20 +56,5 @@ fclean: clean
 	make fclean -C $(INCLIB_DIR)
 
 re: fclean all
-
-.PHONY: test
-test: re
-	$(CC) $(CFLAGS) $(TESTFILE) $(NAME) $(INCLIB_DIR)$(INCLIB_NAME)
-	./a.out
-
-.PHONY: leaks
-leaks: CC = .brew/opt/llvm/bin/clang
-leaks: CFLAGS += -mlinker-version=450 -fsanitize=address -g
-leaks: fclean $(NAME)
-         ASAN_OPTIONS=detect_leaks=1 ./$(NAME)
-
-.PHONY: fcleantest
-fcleantest: fclean
-	rm a.out
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 14:37:02 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/01/22 18:27:54 by nataliya      ########   odam.nl         */
+/*   Updated: 2022/04/14 13:23:23 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_puthex_printf(unsigned int hex, char upper)
 	if (hex == 0)
 	{
 		write(1, "0", 1);
-		return(1);
+		return (1);
 	}
 	else
 	{
