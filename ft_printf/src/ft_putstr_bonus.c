@@ -1,16 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr_printf.c                                 :+:    :+:            */
+/*   ft_putstr_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 16:31:11 by ncheban       #+#    #+#                 */
-<<<<<<< HEAD
-/*   Updated: 2022/04/14 13:23:57 by ncheban       ########   odam.nl         */
-=======
-/*   Updated: 2022/01/31 17:03:33 by nataliya      ########   odam.nl         */
->>>>>>> 876bcb23532b82eaf79b38c4384ea4e889043206
+/*   Updated: 2022/01/29 15:40:20 by nataliya      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +33,66 @@ static	int	ft_skip_trash(const char *mod, int i)
 	}
 	return (0);
 }
+
+// static int ft_meta_minus(const char *mod, t_print *metainfo, int ord, int i)
+// {
+// 	while (mod[i] == '-' && mod[i] != '\0')
+// 	{
+// 		metainfo[ord].minus = 1;
+// 		++i;
+// 	}
+// 	return (i);
+// }
+
+// static int ft_meta_space(const char *mod, t_print *metainfo, int ord, int i)
+// {
+// 	if (mod[i] == '0')
+// 		metainfo[ord].zero_white = '0';
+// 	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
+// 	{
+// 		metainfo[ord].space = metainfo[ord].space * 10 + (mod[i] - '0');
+// 		++i;
+// 	}
+// 	return (i);
+// }
+
+// static int ft_meta_dot(t_print *metainfo, int ord, int i)
+// {
+// 	metainfo[ord].dot = 1;
+// 	++i;
+// 	return (i);
+// }
+
+// static int ft_meta_cut(const char *mod, t_print *metainfo, int ord, int i)
+// {
+// 	while (ft_isdigit(mod[i])!= 0 && mod[i] != '\0')
+// 	{
+// 		metainfo[ord].cut_str = metainfo[ord].cut_str * 10 + (mod[i] - '0');
+// 		++i;
+// 	}
+// 	return (i);
+// }
+
+// static int	ft_check_sequence(const char *mod, t_print *metainfo, int ord)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	metainfo[ord].minus = 0;
+// 	metainfo[ord].space = 0;
+// 	metainfo[ord].cut_str = 0;
+// 	if (mod[i] == '-')
+// 		i = ft_meta_minus(mod, metainfo, ord, i);
+// 	if (ft_isdigit(mod[i]) != 0)
+// 		i = ft_meta_space(mod, metainfo, ord, i);
+// 	if (mod[i] == '.')
+// 		i = ft_meta_dot(metainfo, ord, i);	
+// 	if (ft_isdigit(mod[i]) != 0)
+// 		i = ft_meta_cut(mod, metainfo, ord, i);
+// 	if (i != (int)ft_strlen(mod))
+// 		metainfo[ord].space = -1;
+// 	return (metainfo[ord].space);
+// }
 
 static int	ft_print_space(char	*s, t_print *metainfo, int ord)
 {
@@ -108,9 +164,9 @@ static int ft_alight_symb(char	*s, t_print *metainfo, int ord)
 	str_len = (int)ft_strlen(s);
 	print_space = ft_print_space(s, metainfo, ord);
 	if ((metainfo[ord].cut_str < (int)ft_strlen(s)) && (metainfo[ord].cut_str != 0))
-		str_len = metainfo[ord].cut_str;		
+		str_len = metainfo[ord].cut_str;
 	if (metainfo[ord].dot == 1 && metainfo[ord].cut_str == 0)
-			return (0);
+		return (0);
 	if (metainfo[ord].minus == 0)
 		print_len = ft_alignt_right(s, metainfo[ord].zero_white, str_len, print_space);
 	else if (metainfo[ord].minus == 1)
@@ -126,16 +182,15 @@ static int	ft_apply_modifier(char *s, t_print *metainfo, int ord)
 
 	print_len = 0;
 	i = 0;
-	// metainfo[ord].zero_white = ' ';
+	metainfo[ord].zero_white = ' ';
+	metainfo[ord].space = 1;
 	if (ft_skip_trash(metainfo[ord].modifier, i) != 0)
 		return (-1);
-	print_space = metainfo[ord].space;
+	print_space = metainfo[ord].space; /*ft_check_sequence(metainfo[ord].modifier, metainfo, ord);*/
 	if (print_space != 0 && metainfo[ord].zero_white == '0')
 		return (-1);
 	if (print_space < 0)
 		return (-1);
-	// else if (print_space >= 0 && metainfo[ord].hidden == 0)
-	// 	print_len = ft_alight_symb("+++", metainfo, ord);
 	else
 		print_len = ft_alight_symb(s, metainfo, ord);
 	return (print_len);
@@ -146,31 +201,16 @@ int	ft_putstr_printf(char *s, t_print *metainfo, int ord)
 	int	print_len;
 
 	print_len = 0;
-	// ft_meta_hidden(s, metainfo, ord);
 	if (s == NULL)
 		s = "(null)";
-	// else if (s == NULL && metainfo[ord].dot == 1)
-	// 	s = "+++";
-	// else if (s == NULL && metainfo[ord].space != 0)
-	// {
-	// 	s = " ";
-	// 	// printf("strlen = %i\n", (int)ft_strlen(s));
-	// }
-	// if (metainfo[ord].space != 0 && ft_strlen(s) == 0)
-	// 	s = " ";
-	// printf("#%i - metainfo[ord].space %i\n", ord, metainfo[ord].space);
-	// printf("#%i - ft_strlen(s) %zu\n", ord, ft_strlen(s));
-	if (metainfo[ord].modifier == NULL && s != NULL)
+	if (metainfo[ord].modifier == NULL)
 	{
 		ft_putstr_fd(s, 1);
 		print_len = ft_strlen(s);
 	}
-<<<<<<< HEAD
-	res = ft_strlen(s);
-	return (res);
-=======
 	else
+	{
 		print_len = ft_apply_modifier(s, metainfo, ord);
+	}
 	return (print_len);
->>>>>>> 876bcb23532b82eaf79b38c4384ea4e889043206
 }
