@@ -6,8 +6,12 @@
 
 int	main(void)
 {
-	int	fd;
+	int		fd;
+	char	*res;
 
-	fd = open("get_next_line.h", O_RDONLY);
-	printf("%s", get_next_line(fd));
+	fd = open("get_next_line.c", O_RDONLY);
+	res = get_next_line(fd);
+	printf("%s", res);
+	free (res);
+	close (fd);
 }
