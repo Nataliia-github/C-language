@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 15:48:37 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/04/21 17:59:11 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/04/22 17:29:01 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@
 
 # include <unistd.h>
 # include <fcntl.h>
-// # include <stdlib.h>
-
-// # ifndef OPEN_MAX
-// #  define OPEN_MAX 32
-// # endif
+# include <stdlib.h>
 
 char	*get_next_line(int fd);
 char	*ft_strchr(char	*s, int c);
+size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif

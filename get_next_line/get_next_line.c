@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 15:34:01 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/04/21 18:11:46 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/04/22 17:31:09 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ static char	*ft_get_line(char *save)
 	char	*s;
 
 	i = 0;
+	if (save[i] == 0)
+		return (NULL);
+	while (save[i] != 0 && save[i] != '\n')
+		i++;
+	s = (char *)malloc((i + 2) * sizeof(char));
+	if (s == 0)
+		return (NULL);
 	while (save[i] != 0 && save[i] != '\n')
 	{
 		s[i] = save[i];
@@ -35,11 +42,27 @@ static char	*ft_get_line(char *save)
 static char	*ft_save(char *save)
 {
 	int		i;
-	int		c;
+	int		d;
 	char	*s;
 
 	i = 0;
-	
+	while (save[i] != 0 && save[i] != '\n')
+		++i;
+	if (save[i] == 0)
+	{
+		free(save);
+		return (NULL);
+	}
+	s = (char *)malloc((ft_strlen(save) - i + 1) * sizeof(char));
+	if (s == 0)
+		return (NULL);
+	++i;
+	d = 0;
+	while (save[i] != 0)
+		s[d++] = save[i++];
+	s[d] = '\0';
+	free(save);
+	return (s);
 }
 
 static char	*ft_read_and_save(int fd, char *save)
@@ -71,6 +94,8 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*save;
 
+	if (read(fd, NULL, 0) < 0)
+		return (NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	save = ft_read_and_save(fd, save);
@@ -78,5 +103,5 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_get_line(save);
 	save = ft_save(save);
-	return(line);
+	return (line);
 }

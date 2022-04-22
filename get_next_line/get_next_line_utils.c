@@ -6,7 +6,7 @@
 /*   By: ncheban <ncheban@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 17:41:03 by ncheban       #+#    #+#                 */
-/*   Updated: 2022/04/21 17:58:27 by ncheban       ########   odam.nl         */
+/*   Updated: 2022/04/22 17:09:51 by ncheban       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	strj[i] = '\0';
 	return (strj);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		++i;
+	return (i);
 }
